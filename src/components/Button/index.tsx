@@ -1,6 +1,6 @@
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
-import { styles } from "./styles";
+import { TouchableOpacity, Text, View } from "react-native";
+import styles from "./styles";
 import { useTheme } from "@react-navigation/native";
 import { AppTheme } from "@/src/constants/colorSchemes/theme";
 
@@ -9,9 +9,28 @@ type ButtonProps = {
   onPress: () => void;
   color?: string;
   textColor?: string;
+  icon?: React.ReactNode;
 };
 
-export const Button = ({ title, onPress, color, textColor }: ButtonProps) => {
+/**
+ * Um componente de botão personalizável para React Native.
+ *
+ * @param {Object} props - As propriedades para o componente Button.
+ * @param {string} props.title - O texto exibido dentro do botão.
+ * @param {() => void} props.onPress - Função de callback para lidar com eventos de pressionamento do botão.
+ * @param {string} [props.color] - Cor de fundo opcional para o botão. Pode ser uma chave de cor do tema ou uma string de cor personalizada.
+ * @param {string} [props.textColor] - Cor opcional para o texto do botão.
+ * @param {React.ReactNode} [props.icon] - Ícone opcional exibido à esquerda do texto do botão.
+ *
+ * @returns O componente de botão renderizado.
+ */
+export const Button = ({
+  title,
+  onPress,
+  color,
+  textColor,
+  icon,
+}: ButtonProps) => {
   const { colors } = useTheme() as AppTheme;
   const backgroundColor = color
     ? colors[color as keyof typeof colors] ?? color
@@ -22,9 +41,18 @@ export const Button = ({ title, onPress, color, textColor }: ButtonProps) => {
       onPress={onPress}
       activeOpacity={0.7}
     >
-      <Text style={[styles.text, { color: textColor ?? colors.text_white }]}>
-        {title}
-      </Text>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {icon && <View style={{ marginRight: 8 }}>{icon}</View>}
+        <Text style={[styles.text, { color: textColor ?? colors.text_white }]}>
+          {title}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 };
