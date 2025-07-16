@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import Card from "@/components/Card";
-import { Bico } from "@/types/bicos";
+import { Bico } from "@/src/types/bicos";
 
 const Home: React.FC = () => {
   const [bicos, setBicos] = useState<Bico[]>([]);
