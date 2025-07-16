@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  FlatList,
-  ActivityIndicator,
-  Alert,
-  StyleSheet,
-} from "react-native";
+import { View, FlatList, ActivityIndicator, Alert } from "react-native";
 import axios from "axios";
 import Card from "../../../src/components/Card";
+import { Button } from "../../../src/components/Button";
 import { Bico } from "@/src/types/bicos";
+import { useTheme } from "@react-navigation/native";
+import { AppTheme } from "@/src/constants/colorSchemes/theme";
+import { styles } from "./styles";
 
 const Home: React.FC = () => {
   const [bicos, setBicos] = useState<Bico[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const { colors } = useTheme() as AppTheme;
 
   useEffect(() => {
     axios
@@ -52,21 +51,5 @@ const Home: React.FC = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f3f4f6",
-    paddingTop: 20,
-  },
-  list: {
-    paddingHorizontal: 16,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
 export default Home;
