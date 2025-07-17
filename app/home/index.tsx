@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { Button } from "../../src/components/Button";
 import { useTheme } from "@react-navigation/native";
 import { AppTheme } from "@/src/constants/colorSchemes/theme";

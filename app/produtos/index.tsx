@@ -5,16 +5,16 @@ import { useTheme } from "@react-navigation/native";
 import { AppTheme } from "@/src/constants/colorSchemes/theme";
 import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
+// import { useRouter } from "expo-router";
 import { Title } from "@/src/components/Title";
 
 const Home: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <View style={styles.container}>
-      <Title name="Produtos" />
+      <Title name="Produtos" showBack />
       <Button
         title="Abastecimento"
         icon={
