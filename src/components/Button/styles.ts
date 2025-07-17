@@ -4,7 +4,7 @@ export default StyleSheet.create({
   button: {
     paddingVertical: 20,
     borderRadius: 5,
-    marginVertical: 6,
+    marginVertical: 3,
     width: "100%",
     alignItems: "center",
     justifyContent: "center",

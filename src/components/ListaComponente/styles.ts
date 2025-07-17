@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+const { width: screenWidth } = Dimensions.get("window");
 
 export default StyleSheet.create({
   item: {
@@ -6,31 +7,38 @@ export default StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     padding: 16,
-    borderBottomWidth: 0.8,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "#E8E8E8",
-    width: Dimensions.get("window").width - 32,
+    width: screenWidth - 32,
   },
+
   textContainer: {
+    flex: 1,
     marginLeft: 10,
-    maxWidth: 320,
+    maxWidth: screenWidth - 100,
   },
+
   pumpText: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: "600",
     marginBottom: 3,
+    color: "#000",
   },
+
   statusText: {
     fontSize: 16,
     color: "#000",
     fontFamily: "RobotoMonoRegular",
   },
+
   codeText: {
     fontSize: 14,
-    color: "#000",
+    color: "#666",
     fontFamily: "RobotoMonoRegular",
   },
+
   iconImage: {
-    flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
   },
 });

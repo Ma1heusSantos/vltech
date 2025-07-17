@@ -28,6 +28,7 @@ const Home: React.FC = () => {
             color={colors.text_white}
           />
         }
+        style={{ marginBottom: 10 }}
         onPress={() => router.push("/abastecimento")}
       />
       <Button

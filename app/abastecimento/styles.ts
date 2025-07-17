@@ -7,5 +7,6 @@ export default StyleSheet.create({
     paddingHorizontal: 12,
     textAlign: "center",
     alignItems: "flex-start",
+    paddingBottom: 16,
   },
 });

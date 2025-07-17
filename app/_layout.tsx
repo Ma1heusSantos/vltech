@@ -11,7 +11,7 @@ import { fontConfig } from "@/src/config/fontConfig";
 export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
-  initialRouteName: "index",
+  initialRouteName: "home",
 };
 
 // Previne o auto-hide do splash screen
@@ -57,7 +57,7 @@ function RootLayoutNav() {
 
   // Redirecionar apenas se a rota atual for "/"
   if (pathname === "/") {
-    return <Redirect href="/home" />;
+    return <Redirect href="/finalizar" />;
   }
 
   const stackScreens = useMemo(
@@ -65,10 +65,6 @@ function RootLayoutNav() {
       <>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="home" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="modal"
-          options={{ presentation: "modal", headerShown: false }}
-        />
       </>
     ),
     []

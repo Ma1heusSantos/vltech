@@ -3,13 +3,12 @@ import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import { AppTheme } from "@/src/constants/colorSchemes/theme";
 import styles from "./styles";
-// import { useRouter } from "expo-router";
 import { Title } from "@/src/components/Title";
 import ListaComponente from "@/src/components/ListaComponente";
+import { router } from "expo-router";
 
 const Home: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
-  // const router = useRouter();
   const fuelData = [
     {
       id: "1",
@@ -39,7 +38,7 @@ const Home: React.FC = () => {
       <View>
         <Title name="Abastecimento" showBack />
       </View>
-      <ListaComponente data={fuelData} useImage={false} />
+      <ListaComponente data={fuelData} useImage={false} onItemPress={() => router.push("/carrinho")}/>
     </View>
   );
 };

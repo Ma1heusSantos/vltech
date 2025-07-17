@@ -15,19 +15,24 @@ interface Item {
 
 interface ListaComponenteProps {
   data: Item[];
-  useImage?: boolean; // New prop to toggle between icon and image
-  imageSource?: string; // New prop for image source (URI or local path)
+  useImage?: boolean;
+  imageSource?: string;
+  onItemPress?: (item: Item) => void; // Novo parâmetro para função de clique
 }
 
 const ListaComponente: React.FC<ListaComponenteProps> = ({
   data,
   useImage = false,
   imageSource,
+  onItemPress, // Adicionado na desestruturação
 }) => {
   const { colors } = useTheme() as AppTheme;
 
   const renderItem = ({ item }: { item: Item }) => (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => onItemPress?.(item)} // Chama a função passando o item
+    >
       <View style={styles.iconImage}>
         {useImage && imageSource ? (
           <Image
