@@ -1,10 +1,8 @@
 import React from "react";
-import { FlatList, Text, View } from "react-native";
-import { Button } from "../../src/components/Button";
+import { View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import { AppTheme } from "@/src/constants/colorSchemes/theme";
 import styles from "./styles";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 // import { useRouter } from "expo-router";
 import { Title } from "@/src/components/Title";
 import ListaComponente from "@/src/components/ListaComponente";
@@ -41,20 +39,7 @@ const Home: React.FC = () => {
       <View>
         <Title name="Abastecimento" showBack />
       </View>
-      <ListaComponente data={fuelData} />
-
-      {/* <FlatList
-        data={bombasMock}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View>
-            <Text>
-              #{item.nome} - {item.combustivel}
-            </Text>
-            <Text>Status: {item.status}</Text>
-          </View>
-        )}
-      /> */}
+      <ListaComponente data={fuelData} useImage={false} />
     </View>
   );
 };

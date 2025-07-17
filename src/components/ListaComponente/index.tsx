@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, Text, TouchableOpacity } from "react-native";
+import { View, FlatList, Text, TouchableOpacity, Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import styles from "./styles";
 import { useTheme } from "@react-navigation/native";
@@ -15,23 +15,43 @@ interface Item {
 
 interface ListaComponenteProps {
   data: Item[];
+  useImage?: boolean; // New prop to toggle between icon and image
+  imageSource?: string; // New prop for image source (URI or local path)
 }
 
-const ListaComponente: React.FC<ListaComponenteProps> = ({ data }) => {
+const ListaComponente: React.FC<ListaComponenteProps> = ({
+  data,
+  useImage = false,
+  imageSource,
+}) => {
   const { colors } = useTheme() as AppTheme;
+
   const renderItem = ({ item }: { item: Item }) => (
     <TouchableOpacity style={styles.item}>
       <View style={styles.iconImage}>
-        <MaterialCommunityIcons
-          name="gas-station"
-          size={42}
-          color={colors.destaque}
-          style={{
-            backgroundColor: colors.fundo_escuro,
-            borderRadius: 8,
-            padding: 2,
-          }}
-        />
+        {useImage && imageSource ? (
+          <Image
+            source={{ uri: imageSource }}
+            style={{
+              width: 42,
+              height: 42,
+              backgroundColor: colors.fundo_escuro,
+              borderRadius: 8,
+              padding: 2,
+            }}
+          />
+        ) : (
+          <MaterialCommunityIcons
+            name="gas-station"
+            size={42}
+            color={colors.destaque}
+            style={{
+              backgroundColor: colors.fundo_escuro,
+              borderRadius: 8,
+              padding: 2,
+            }}
+          />
+        )}
         <Text style={styles.codeText}>{item.code}</Text>
       </View>
       <View style={styles.textContainer}>
@@ -48,6 +68,7 @@ const ListaComponente: React.FC<ListaComponenteProps> = ({ data }) => {
       data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
+      scrollEnabled={true}
     />
   );
 };
