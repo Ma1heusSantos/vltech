@@ -199,7 +199,7 @@ const CategoriaButton = React.memo(
   )
 );
 
-const Home: React.FC = () => {
+const ProdutosPage: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
   const [categoriaSelecionada, setCategoriaSelecionada] =
     useState("Conveniência");
@@ -265,4 +265,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default ProdutosPage;

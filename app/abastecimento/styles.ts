@@ -9,4 +9,9 @@ export default StyleSheet.create({
     alignItems: "flex-start",
     paddingBottom: 16,
   },
+  loadingContainer: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });

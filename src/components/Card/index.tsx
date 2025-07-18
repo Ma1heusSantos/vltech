@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Bico } from "../../types/bicos";
+import { Bico } from "../../types";
 
 interface CardProps {
   bico: Bico;

@@ -7,6 +7,7 @@ import "react-native-reanimated";
 import { useColorScheme } from "react-native";
 import { LightTheme, DarkTheme } from "@/src/constants/colorSchemes/theme";
 import { fontConfig } from "@/src/config/fontConfig";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -57,7 +58,7 @@ function RootLayoutNav() {
 
   // Redirecionar apenas se a rota atual for "/"
   if (pathname === "/") {
-    return <Redirect href="/finalizar" />;
+    return <Redirect href="/home" />;
   }
 
   const stackScreens = useMemo(
@@ -71,8 +72,10 @@ function RootLayoutNav() {
   );
 
   return (
-    <ThemeProvider value={theme}>
-      <Stack screenOptions={{ headerShown: false }}>{stackScreens}</Stack>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider value={theme}>
+        <Stack screenOptions={{ headerShown: false }}>{stackScreens}</Stack>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }

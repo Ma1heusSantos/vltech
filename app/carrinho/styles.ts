@@ -16,6 +16,13 @@ export default StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "#E8E8E8",
     width: screenWidth - 32,
+    position: "relative", // Added to support absolute positioning of remove button
+  },
+  removeButton: {
+    position: "absolute",
+    right: 8,
+    top: 8,
+    padding: 14,
   },
   textContainer: {
     flex: 1,
@@ -83,5 +90,16 @@ export default StyleSheet.create({
     color: "#000",
     textAlign: "center",
     fontFamily: "RobotoMonoMedium",
+  },
+  emptyContainer: {
+    width: "100%",
+    paddingTop: 64,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emptyText: {
+    fontSize: 22,
+    color: "#000",
+    textAlign: "center",
   },
 });

@@ -36,9 +36,19 @@ export default StyleSheet.create({
     color: "#666",
     fontFamily: "RobotoMonoRegular",
   },
-
   iconImage: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  emptyContainer: {
+    width: "100%",
+    paddingTop: 64,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emptyText: {
+    fontSize: 22,
+    color: "#000",
+    textAlign: "center",
   },
 });

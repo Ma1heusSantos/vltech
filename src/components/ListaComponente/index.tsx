@@ -17,22 +17,19 @@ interface ListaComponenteProps {
   data: Item[];
   useImage?: boolean;
   imageSource?: string;
-  onItemPress?: (item: Item) => void; // Novo parâmetro para função de clique
+  onItemPress?: (item: Item) => void;
 }
 
 const ListaComponente: React.FC<ListaComponenteProps> = ({
   data,
   useImage = false,
   imageSource,
-  onItemPress, // Adicionado na desestruturação
+  onItemPress,
 }) => {
   const { colors } = useTheme() as AppTheme;
 
   const renderItem = ({ item }: { item: Item }) => (
-    <TouchableOpacity
-      style={styles.item}
-      onPress={() => onItemPress?.(item)} // Chama a função passando o item
-    >
+    <TouchableOpacity style={styles.item} onPress={() => onItemPress?.(item)}>
       <View style={styles.iconImage}>
         {useImage && imageSource ? (
           <Image
@@ -68,12 +65,27 @@ const ListaComponente: React.FC<ListaComponenteProps> = ({
     </TouchableOpacity>
   );
 
+  if (!data || data.length === 0) {
+    return (
+      <View style={styles.emptyContainer}>
+        <MaterialCommunityIcons
+          name="gas-station-off"
+          size={48}
+          color={colors.error}
+          style={{ marginBottom: 16 }}
+        />
+        <Text style={styles.emptyText}>Nenhuma bomba encontrada</Text>
+      </View>
+    );
+  }
+
   return (
     <FlatList
       data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
       scrollEnabled={true}
+      showsVerticalScrollIndicator={false}
     />
   );
 };

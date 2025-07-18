@@ -9,7 +9,7 @@ import { useRouter } from "expo-router";
 import { Title } from "@/src/components/Title";
 import { Subtitle } from "@/src/components/Subtitle";
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
   const router = useRouter();
 
@@ -17,7 +17,7 @@ const Home: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Title name="Serviços" />
-        <Subtitle name="Esta é a bomba de combustível que você utilizou para encher o tanque e que irá pagar." />
+        <Subtitle name="Para prosseguir, por favor, selecione um serviço abaixo." />
       </View>
       <Button
         title="Abastecimento"
@@ -46,4 +46,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;

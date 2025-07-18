@@ -8,13 +8,13 @@ import { Title } from "@/src/components/Title";
 import { Button } from "@/src/components/Button";
 import { router } from "expo-router";
 
-const Home: React.FC = () => {
+const FinalizarPage: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
 
   return (
     <View style={styles.container}>
       <View>
-        <Title name="Finalizar" />
+        <Title name="FinalizarPage" />
       </View>
       <View style={styles.detalhes}>
         <Text style={[styles.title, { color: colors.text }]}>
@@ -79,4 +79,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default FinalizarPage;

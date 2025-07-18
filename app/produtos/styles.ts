@@ -32,4 +32,36 @@ export default StyleSheet.create({
     alignItems: "center",
     marginTop: "20%",
   },
+  swipeableContent: {
+    width: width,
+    height: 100,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+  },
+  leftAction: {
+    flex: 1,
+    backgroundColor: "#388e3c",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    paddingLeft: 20,
+  },
+  rightAction: {
+    flex: 1,
+    backgroundColor: "#d32f2f",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    paddingRight: 20,
+  },
+  actionText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  contentText: {
+    fontSize: 18,
+    color: "#000",
+  },
 });
