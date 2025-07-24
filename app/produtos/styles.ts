@@ -32,15 +32,6 @@ export default StyleSheet.create({
     alignItems: "center",
     marginTop: "20%",
   },
-  swipeableContent: {
-    width: width,
-    height: 100,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#ccc",
-  },
   leftAction: {
     flex: 1,
     backgroundColor: "#388e3c",
