@@ -1,264 +1,125 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 import { useTheme } from "@react-navigation/native";
+import { router } from "expo-router";
 import { AppTheme } from "@/src/constants/colorSchemes/theme";
-import styles from "./styles";
 import { Title } from "@/src/components/Title";
 import ListaComponente from "@/src/components/ListaComponente";
-import { router } from "expo-router";
+import styles from "./styles";
+import { PRODUCT_DATA, CATEGORY_CONFIG } from "../../src/constants/constants";
+import type { CategoryType, ProductItem } from "../../src/types/index";
 
-const CATEGORIAS = ["Conveniência", "Automotivo"];
-
-const REFRI_DATA = [
-  {
-    id: "1",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "2",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "3",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "4",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "5",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "6",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "7",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "8",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "9",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-  {
-    id: "10",
-    type: "Coca-Cola",
-    pump: "Refrigerante",
-    status: "R$ 08,35",
-    code: "023456",
-  },
-];
-
-const SERVICOS_DATA = [
-  {
-    id: "1",
-    type: "Troca de Óleo",
-    pump: "Manutenção",
-    status: "R$ 150,00",
-    code: "SRV001",
-  },
-  {
-    id: "2",
-    type: "Alinhamento",
-    pump: "Manutenção",
-    status: "R$ 80,00",
-    code: "SRV002",
-  },
-  {
-    id: "3",
-    type: "Balanceamento",
-    pump: "Manutenção",
-    status: "R$ 60,00",
-    code: "SRV003",
-  },
-  {
-    id: "4",
-    type: "Lavagem Simples",
-    pump: "Lavagem",
-    status: "R$ 50,00",
-    code: "SRV004",
-  },
-  {
-    id: "5",
-    type: "Lavagem Completa",
-    pump: "Lavagem",
-    status: "R$ 120,00",
-    code: "SRV005",
-  },
-  {
-    id: "6",
-    type: "Troca de Pneus",
-    pump: "Manutenção",
-    status: "R$ 200,00",
-    code: "SRV006",
-  },
-  {
-    id: "7",
-    type: "Polimento",
-    pump: "Estética",
-    status: "R$ 250,00",
-    code: "SRV007",
-  },
-  {
-    id: "8",
-    type: "Higienização Interna",
-    pump: "Estética",
-    status: "R$ 180,00",
-    code: "SRV008",
-  },
-  {
-    id: "9",
-    type: "Troca de Filtro",
-    pump: "Manutenção",
-    status: "R$ 90,00",
-    code: "SRV009",
-  },
-  {
-    id: "10",
-    type: "Diagnóstico Eletrônico",
-    pump: "Manutenção",
-    status: "R$ 100,00",
-    code: "SRV010",
-  },
-];
-
-const IMAGE_URLS = {
-  CONVENIENCIA:
-    "https://s1.kuantokusta.pt/img_upload/produtos_gastronomiavinhos/28413_3_coca-cola-refrigerante-com-gas-33cl.jpg",
-  AUTOMOTIVO:
-    "https://images.cws.digital/produtos/gg/10/29/oleo-de-motor-essencial-alta-rodagem-1-litro-1132910-1597958587057.jpg",
-};
-
-const CategoriaButton = React.memo(
-  ({
-    categoria,
-    isActive,
-    onPress,
-    colors,
-  }: {
-    categoria: string;
-    isActive: boolean;
-    onPress: () => void;
-    colors: any;
-  }) => (
-    <TouchableOpacity
-      onPress={onPress}
+const CategoryButton = React.memo<{
+  category: CategoryType;
+  isActive: boolean;
+  onPress: (category: CategoryType) => void;
+  colors: AppTheme["colors"];
+}>(({ category, isActive, onPress, colors }) => (
+  <TouchableOpacity
+    onPress={() => onPress(category)}
+    style={[
+      styles.categoriaBotao,
+      {
+        borderBottomColor: isActive ? colors.text : "transparent",
+      },
+    ]}
+    accessibilityRole="button"
+    accessibilityState={{ selected: isActive }}
+    accessibilityLabel={`Categoria ${category}`}
+  >
+    <Text
       style={[
-        styles.categoriaBotao,
+        styles.categoriaTexto,
         {
-          borderBottomColor: isActive ? colors.text : "transparent",
+          color: isActive ? colors.sucesso : colors.text,
+          fontWeight: isActive ? "600" : "normal",
+          textDecorationColor: colors.sucesso,
         },
       ]}
     >
-      <Text
-        style={[
-          styles.categoriaTexto,
-          {
-            color: isActive ? colors.sucesso : colors.text,
-            fontWeight: isActive ? "600" : "normal",
-            textDecorationColor: colors.sucesso,
-          },
-        ]}
-      >
-        {categoria}
-      </Text>
-    </TouchableOpacity>
-  )
-);
+      {category}
+    </Text>
+  </TouchableOpacity>
+));
+
+CategoryButton.displayName = "CategoryButton";
 
 const ProdutosPage: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
-  const [categoriaSelecionada, setCategoriaSelecionada] =
-    useState("Conveniência");
+  const [selectedCategory, setSelectedCategory] =
+    useState<CategoryType>("Conveniência");
   const [isLoading, setIsLoading] = useState(false);
 
-  const selectedData = useMemo(() => {
-    return categoriaSelecionada === "Conveniência" ? REFRI_DATA : SERVICOS_DATA;
-  }, [categoriaSelecionada]);
+  const { data, imageSource } = useMemo(() => {
+    const config = CATEGORY_CONFIG[selectedCategory];
+    return {
+      data: PRODUCT_DATA[config.dataKey],
+      imageSource: config.imageUrl,
+    };
+  }, [selectedCategory]);
 
-  const imageSource = useMemo(() => {
-    return categoriaSelecionada === "Conveniência"
-      ? IMAGE_URLS.CONVENIENCIA
-      : IMAGE_URLS.AUTOMOTIVO;
-  }, [categoriaSelecionada]);
-
-  const handleCategoriaChange = useCallback(
-    (categoria: string) => {
-      if (categoria === categoriaSelecionada || isLoading) return;
+  const handleCategoryChange = useCallback(
+    (category: CategoryType) => {
+      if (category === selectedCategory || isLoading) return;
 
       setIsLoading(true);
-      setCategoriaSelecionada(categoria);
+      setSelectedCategory(category);
 
-      // ! DELAY SIMULADO - TIRAR DPS
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 300);
+
+      return () => clearTimeout(timeoutId);
     },
-    [categoriaSelecionada, isLoading]
+    [selectedCategory, isLoading]
   );
 
-  const renderCategoriaButtons = useMemo(() => {
-    return CATEGORIAS.map((categoria) => {
-      const isActive = categoria === categoriaSelecionada;
+  const handleItemPress = useCallback(() => {
+    router.push("/carrinho");
+  }, []);
+
+  const categoryButtons = useMemo(() => {
+    return Object.keys(CATEGORY_CONFIG).map((category) => {
+      const categoryKey = category as CategoryType;
       return (
-        <CategoriaButton
-          key={categoria}
-          categoria={categoria}
-          isActive={isActive}
-          onPress={() => handleCategoriaChange(categoria)}
+        <CategoryButton
+          key={categoryKey}
+          category={categoryKey}
+          isActive={categoryKey === selectedCategory}
+          onPress={handleCategoryChange}
           colors={colors}
         />
       );
     });
-  }, [categoriaSelecionada, colors, handleCategoriaChange]);
+  }, [selectedCategory, colors, handleCategoryChange]);
+
+  const loadingComponent = useMemo(
+    () => (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator
+          size="large"
+          color={colors.primary}
+          accessibilityLabel="Carregando produtos"
+        />
+      </View>
+    ),
+    [colors.primary]
+  );
 
   return (
     <View style={styles.container}>
       <Title name="Produtos" showBack />
-      <View style={styles.categoriasContainer}>{renderCategoriaButtons}</View>
+
+      <View style={styles.categoriasContainer}>{categoryButtons}</View>
+
       {isLoading ? (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color={colors.primary} />
-        </View>
+        loadingComponent
       ) : (
         <ListaComponente
-          data={selectedData}
+          data={data}
           useImage={true}
           imageSource={imageSource}
-          onItemPress={() => router.push("/carrinho")}
+          onItemPress={handleItemPress}
         />
       )}
     </View>

@@ -4,7 +4,6 @@ interface Response extends globalThis.Response {
   json: () => Promise<{ data: any; message: string }>;
 }
 
-// GET -> Request Listar Bombas
 const getAllPump = async () =>
   api
     .get<{ data: any[]; message: string }>(`/ultimosabast/list/`)

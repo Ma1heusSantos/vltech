@@ -1,45 +1,58 @@
 import { StyleSheet } from "react-native";
 
+const SPACING = {
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 60,
+} as const;
+
+const FONT_SIZES = {
+  small: 14,
+  medium: 18,
+  large: 22,
+} as const;
+
+const BORDER = {
+  radius: 5,
+  width: 1,
+  color: "#E8E8E8",
+} as const;
+
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
-    paddingHorizontal: 12,
-    textAlign: "center",
+    paddingTop: SPACING.lg,
+    paddingHorizontal: SPACING.sm,
+    paddingBottom: SPACING.md,
     alignItems: "flex-start",
-    paddingBottom: 16,
   },
   detalhes: {
-    flexDirection: "column",
-    alignItems: "flex-start",
     width: "100%",
-    gap: 8,
-    paddingTop: 16,
-    paddingHorizontal: 16,
-    borderColor: "#E8E8E8",
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 16,
+    marginBottom: SPACING.md,
+    paddingTop: SPACING.md,
+    paddingHorizontal: SPACING.md,
+    gap: SPACING.xs,
+    borderColor: BORDER.color,
+    borderWidth: BORDER.width,
+    borderRadius: BORDER.radius,
   },
   title: {
-    fontSize: 22,
-    fontWeight: "bold",
-    textAlign: "left",
+    fontSize: FONT_SIZES.large,
+    fontWeight: "bold" as const,
     width: "100%",
+    textAlign: "left" as const,
   },
   label: {
-    fontSize: 14,
+    fontSize: FONT_SIZES.small,
   },
   text: {
-    fontSize: 18,
+    fontSize: FONT_SIZES.medium,
     fontFamily: "RobotoMonoRegular",
-    marginBottom: 16,
+    marginBottom: SPACING.md,
   },
   infos: {
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
     width: "100%",
-    paddingVertical: 8,
+    paddingVertical: SPACING.xs,
   },
 });

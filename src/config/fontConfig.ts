@@ -20,7 +20,6 @@ export const fontConfig = {
   ...MaterialIcons.font,
 };
 
-// Exporta também as fontes individuais caso necessário
 export {
   Roboto_400Regular,
   Roboto_500Medium,
