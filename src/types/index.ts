@@ -25,3 +25,21 @@ export interface CategoryConfig {
 export type ProductData = {
   [K in CategoryType]: ProductItem[];
 };
+
+export interface Bico {
+  numabast: number;
+  codabast: number;
+  codbico: number;
+  encinicialabast: number;
+  encerranteabast: number;
+  volumeabast: number;
+  valorabast: number;
+  datahoraabast: string;
+  precoabast: number;
+  precoabastprazo: number;
+  tridfunc: string;
+  tridcliente: string;
+  numterminal: number;
+  codcaixa: number;
+  codemp: number;
+}

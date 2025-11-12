@@ -89,13 +89,13 @@ android {
 
     namespace 'com.ma1heussantos.teste'
     defaultConfig {
-        applicationId 'com.ma1heussantos.teste'
+        applicationId 'com.ma1heussantos.vltech'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
     }
-    signingConfigs {
+   signingConfigs {
         gertec {
             storeFile file("Development_GertecDeveloper_CustomerAPP.jks")
             storePassword 'Development@GertecDeveloper2018'
@@ -103,7 +103,6 @@ android {
             keyPassword 'Development@GertecDeveloper2018'
         }
     }
-
     buildTypes {
         debug {
             signingConfig signingConfigs.gertec
@@ -115,6 +114,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     packagingOptions {
         jniLibs {
             useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)

@@ -38,7 +38,7 @@ const AbastecimentoPage: React.FC = () => {
   }, []);
 
   const fetchBombasData = useCallback(async () => {
-    try {
+    try { 
       setIsLoading(true);
       const response: ApiResponse | RawBombaData[] = await getAllPump();
 

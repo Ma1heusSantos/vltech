@@ -1,12 +1,11 @@
 import { ThemeProvider } from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import { Redirect, Stack, usePathname } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "react-native-reanimated";
-import { useColorScheme } from "react-native";
+import { useColorScheme, View, ActivityIndicator } from "react-native";
 import { LightTheme, DarkTheme } from "@/src/constants/colorSchemes/theme";
-import { fontConfig } from "@/src/config/fontConfig";
+import * as Font from "expo-font";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export { ErrorBoundary } from "expo-router";
@@ -15,33 +14,45 @@ export const unstable_settings = {
   initialRouteName: "home",
 };
 
-// Previne o auto-hide do splash screen
 SplashScreen.preventAutoHideAsync();
 
-/**
- * Este é o componente de layout raiz.
- *
- * Ele define o tema com base na preferência de esquema de cores do usuário e renderiza
- * um navegador de pilha com as telas: `index`, `home` e `modal`.
- *
- * Se o usuário navegar para o caminho raiz (`"/"`), será redirecionado para
- * o caminho `/home`.
- */
 export default function RootLayout() {
-  const [loaded, error] = useFonts(fontConfig);
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    if (error) throw error;
-  }, [error]);
+    (async () => {
+      try {
+        await Font.loadAsync({
+          "Roboto-Regular": require("../assets/fonts/Roboto_Condensed-Regular.ttf"),
+          "Roboto-Medium": require("../assets/fonts/Roboto_Condensed-Medium.ttf"),
+          "Roboto-Bold": require("../assets/fonts/Roboto_Condensed-Bold.ttf"),
+          "Roboto-SemiBold": require("../assets/fonts/Roboto_Condensed-SemiBold.ttf"),
+          "RobotoMono-Regular": require("../assets/fonts/Roboto_SemiCondensed-Regular.ttf"),
+          "RobotoMono-Medium": require("../assets/fonts/Roboto_SemiCondensed-Medium.ttf"),
+        });
+        setFontsLoaded(true);
+      } catch (err: any) {
+        console.error("Erro ao carregar fontes:", err);
+        setError(err);
+      }
+    })();
+  }, []);
 
   useEffect(() => {
-    if (loaded) {
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded]);
+  }, [fontsLoaded]);
 
-  if (!loaded) {
-    return null;
+  if (error) throw error;
+
+  if (!fontsLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" color="#1f2937" />
+      </View>
+    );
   }
 
   return <RootLayoutNav />;
@@ -56,7 +67,6 @@ function RootLayoutNav() {
     [colorScheme]
   );
 
-  // Redirecionar apenas se a rota atual for "/"
   if (pathname === "/") {
     return <Redirect href="/home" />;
   }

@@ -1,0 +1,578 @@
+--------- beginning of main
+11-06 14:52:57.001 I/ReactNativeJNI( 6768): Error occurred, shutting down websocket connection: WebSocket exception Failed to connect to localhost/127.0.0.1:8081
+--------- beginning of kernel
+11-06 14:52:57.517 E/        (    0): cw_update_data vol = 4080  cap = 87 temp = 340
+11-06 14:52:57.522 E/ALG     (    0): get_time_to_full_locked: failed to get ACT_BATT_CAP rc=-19
+11-06 14:52:57.523 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:52:57.523 W/healthd (    0): battery l=87 v=4080 t=34.0 h=2 st=2 c=-256195 fc=0 cc=0 chg=u
+11-06 14:52:57.524 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:52:57.525 I/chatty  (    0): uid=0(root) logd identical 2 lines
+11-06 14:52:57.526 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:52:57.527 E/ALG     (    0): get_time_to_full_locked: failed to get ACT_BATT_CAP rc=-19
+11-06 14:52:57.615 V/LocSvc_BatteryListener(  628): healthInfoChanged_2_1:236] healthInfoChanged_2_1: 2
+11-06 14:52:57.615 V/LocSvc_BatteryListener(  628): healthInfoChanged:225] healthInfoChanged: 2
+--------- beginning of system
+11-06 14:52:57.617 E/BatteryService( 1073): Processing new values: info={.chargerAcOnline = false, .chargerUsbOnline = true, .chargerWirelessOnline = false, .maxChargingCurrent = 0, .maxChargingVoltage = 0, .batteryStatus = CHARGING, .batteryHealth = GOOD, .batteryPresent = true, .batteryLevel = 87, .batteryVoltage = 4080, .batteryTemperature = 340, .batteryCurrent = -256195, .batteryCycleCount = 0, .batteryFullCharge = 0, .batteryChargeCounter = 0, .batteryTechnology = Li-ion}, mBatteryLevelCritical=false, batteryTemperature=340, mPlugType=2
+11-06 14:52:57.617 E/BatteryService( 1073): shutdownIfOverTempLocked batteryTemperature=340
+11-06 14:52:57.664 D/QCNEJ/WlanStaInfoRelay( 2379): Received action: android.net.wifi.RSSI_CHANGED
+11-06 14:52:59.011 I/ReactNativeJNI( 6768): Error occurred, shutting down websocket connection: WebSocket exception Failed to connect to localhost/127.0.0.1:8081
+11-06 14:53:00.007 D/KeyguardUpdateMonitor( 2121): received broadcast android.intent.action.TIME_TICK
+11-06 14:53:00.008 D/KeyguardUpdateMonitor( 2121): handleTimeUpdate
+11-06 14:53:00.011 D/KeyguardClockSwitch( 2121): Updating clock: 1453
+11-06 14:53:00.022 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, evtExist == false
+11-06 14:53:00.022 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, kernelExist == false
+11-06 14:53:00.022 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, nativeExist == false
+11-06 14:53:00.022 I/StatusBarTime( 2121): Clock, updateClock, firstRecoveryCompletedFlag == true
+11-06 14:53:00.025 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, evtExist == false
+11-06 14:53:00.026 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, kernelExist == false
+11-06 14:53:00.026 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, nativeExist == false
+11-06 14:53:00.026 I/StatusBarTime( 2121): Clock, updateClock, firstRecoveryCompletedFlag == true
+11-06 14:53:00.028 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, evtExist == false
+11-06 14:53:00.029 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, kernelExist == false
+11-06 14:53:00.029 I/StatusBarTime( 2121): Clock, isFirstRecoveryCompleted, nativeExist == false
+11-06 14:53:00.029 I/StatusBarTime( 2121): Clock, updateClock, firstRecoveryCompletedFlag == true
+11-06 14:53:01.013 I/ReactNativeJNI( 6768): Error occurred, shutting down websocket connection: WebSocket exception Failed to connect to localhost/127.0.0.1:8081
+11-06 14:53:02.389 I/[schedu][0xaf08e52523][14:53:02.474744] wlan(    0): [1855:I:WMA] [14:53:02.434000] [ROAM_TRIGGER]: VDEV[0] Reason: "LOW RSSI" Sub-Reason: FULL SCANCur_rssi_threshold: 81
+11-06 14:53:02.389 I/[schedu][0xaf08e52866][14:53:02.474788] wlan(    0): [1855:I:WMA] [14:53:02.434000] [ROAM_SCAN]: VDEV[0] Scan_type: PARTIAL next_rssi_threshold: 81 dBm {2427 }
+11-06 14:53:02.389 I/[schedu][0xaf08e52b11][14:53:02.474823] wlan(    0): [1855:I:WMA]      AP BSSID           TSTAMP       CH   TY  ETP  RSSI/SCR CU%/SCR TOT_SCR
+11-06 14:53:02.389 I/[schedu][0xaf08e52e13][14:53:02.474863] wlan(    0): [1855:I:WMA] 44:3b:32:9a:8f:dd [14:53:02.434000] 2427 P_AP    0  77/0     0/0     1529
+11-06 14:53:02.389 I/[schedu][0xaf08e53017][14:53:02.474890] wlan(    0): [1855:I:WMA] [14:53:02.465000] [ROAM_RESULT]: VDEV[0] FAILED Reason: NO AP FOUND
+11-06 14:53:02.671 W/ANDR-PERF-LM(  673): FeatureState: readState() 151: warning: appName is NULL, returning default State
+11-06 14:53:02.671 W/ANDR-PERF-LM(  673): FeatureState: readState() 151: warning: appName is NULL, returning default State
+11-06 14:53:02.671 W/ANDR-PERF-LM(  673): MetaMeter: handleSecondaryAsync() 151: PreKill MetaMeterThread start(). No MeterMgr Available to handle this Secondary/Data Async. !!!! 
+11-06 14:53:02.671 D/vendor.qti.vibrator(  685): QTI Vibrator reporting capabilities: 3
+11-06 14:53:02.673 D/vendor.qti.vibrator(  685): QTI Vibrator off
+11-06 14:53:02.675 E/VibratorService( 1073): Failed to issue command to vibrator HAL. Retrying.
+11-06 14:53:02.675 I/servicemanager(  435): Found android.hardware.vibrator.IVibrator/default in device VINTF manifest.
+11-06 14:53:02.677 E/VibratorService( 1073): Failed to issue command to vibrator HAL. Retrying.
+11-06 14:53:02.677 I/servicemanager(  435): Found android.hardware.vibrator.IVibrator/default in device VINTF manifest.
+11-06 14:53:02.690 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:02.690 D/audio_hw_primary(  602): start_output_stream: enter: stream(0xeeac64c0)usecase(1: low-latency-playback) devices(0x2) is_haptic_usecase(0)
+11-06 14:53:02.691 E/ANDR-PERF-TARGET(  673): Error: Invalid logical cluster id 0
+11-06 14:53:02.691 E/ANDR-PERF-REQUEST(  673): invalid request
+11-06 14:53:02.691 E/ANDR-PERF-MPCTL(  673): invalid request, no optimizations performed
+11-06 14:53:02.692 E/audio_hw_extn(  602): audio_extn_perf_lock_acquire: Failed to acquire perf lock, err: -1
+11-06 14:53:02.692 D/audio_hw_primary(  602): select_devices for use case (low-latency-playback)
+11-06 14:53:02.692 I/msm8974_platform(  602): platform_check_and_set_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 1 device (speaker)
+11-06 14:53:02.692 I/msm8974_platform(  602): platform_check_and_set_codec_backend_cfg: new_snd_devices[0] is 2
+11-06 14:53:02.692 I/msm8974_platform(  602): platform_check_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 1 device (speaker)
+11-06 14:53:02.693 D/msm8974_platform(  602): platform_check_codec_backend_cfg:becf: updated afe: bitwidth 16, samplerate 48000 channels 2,backend_idx 0 usecase = 1 device (speaker)
+11-06 14:53:02.694 I/msm8974_platform(  602): platform_check_codec_backend_cfg:becf: afe: Codec selected backend: 0 updated bit width: 16 and sample rate: 48000
+11-06 14:53:02.694 D/audio_hw_primary(  602): check_usecases_codec_backend:becf: force routing 0
+11-06 14:53:02.694 D/audio_hw_primary(  602): check_usecases_codec_backend:becf: (85) check_usecases curr device: speaker, usecase device: backends match 0
+11-06 14:53:02.694 D/audio_hw_primary(  602): check_usecases_codec_backend:becf: check_usecases num.of Usecases to switch 0
+11-06 14:53:02.694 D/hardware_info(  602): hw_info_append_hw_type : device_name = speaker
+11-06 14:53:02.694 D/audio_hw_primary(  602): enable_snd_device: snd_device(2: speaker)
+11-06 14:53:02.694 D/msm8974_platform(  602): platform_get_island_cfg_on_device:island cfg status on snd_device = (speaker 0)
+11-06 14:53:02.694 I/soundtrigger(  602): audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 1, with Raise=0
+11-06 14:53:02.694 D/audio_route(  602): Apply path: speaker
+11-06 14:53:02.696 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:02.622 E/msm_pcm_chmap_ctl_put(    0): substream ref_count:0 invalid
+11-06 14:53:02.702 D/soundtrigger(  602): audio_extn_sound_trigger_update_stream_status: uc_info->id 1 of type 0 for Event 3, with Raise=0
+11-06 14:53:02.703 D/audio_hw_utils(  602): audio_extn_utils_send_app_type_cfg: usecase->out_snd_device speaker
+11-06 14:53:02.703 I/audio_hw_utils(  602): send_app_type_cfg_for_device PLAYBACK app_type 69937, acdb_dev_id 14, sample_rate 48000, snd_device_be_idx 187
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> send_audio_cal, acdb_id = 14, path = 0, app id = 0x11131, sample rate = 48000, use_case = 0,buffer_idx_w_path =0, afe_sample_rate = 48000, cal_mode = 1, offset_index = 0
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> send_asm_topology
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TOPOLOGY_ID
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> send_adm_topology
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TOPOLOGY_ID
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> send_audtable
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE_SIZE
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> AUDIO_SET_AUDPROC_CAL cal_type[11] acdb_id[14] app_type[69937]
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> send_audvoltable
+11-06 14:53:02.704 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE, vol index 0
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> AUDIO_SET_VOL_CAL cal type = 12
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE_SIZE
+11-06 14:53:02.705 D/vendor.qti.vibrator(  685): Vibrator on for timeoutMs: 10
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> send_audstrmtable
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> audstrm_cal->cal_type.cal_data.cal_size = 20
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> send_afe_topology
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AFE_TOPOLOGY_ID
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 14, Topology Id 112fc
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> send_afe_cal
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE
+11-06 14:53:02.705 D/android.hardware.audio.service(  602): Failed to fetch the lookup information of the device 0000000E 
+11-06 14:53:02.705 D/ACDB-LOADER(  602): Error: ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE Returned = -19
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE
+11-06 14:53:02.705 D/android.hardware.audio.service(  602): Failed to fetch the lookup information of the device 0000000E 
+11-06 14:53:02.705 D/ACDB-LOADER(  602): Error: ACDB AFE returned = -19
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> AUDIO_SET_AFE_CAL cal_type[16] acdb_id[14]
+11-06 14:53:02.705 D/ACDB-LOADER(  602): ACDB -> send_hw_delay : acdb_id = 14 path = 0
+11-06 14:53:02.706 D/ACDB-LOADER(  602): ACDB -> ACDB_AVSYNC_INFO: ACDB_CMD_GET_DEVICE_PROPERTY
+11-06 14:53:02.706 D/audio_hw_primary(  602): enable_audio_route: apply mixer and update path: low-latency-playback
+11-06 14:53:02.706 D/audio_route(  602): Apply path: low-latency-playback
+11-06 14:53:02.706 D/audio_hw_primary(  602): select_devices: done
+11-06 14:53:02.707 D/msm8974_platform(  602): platform_set_channel_map mixer_ctl_name:Playback Channel Map9
+11-06 14:53:02.707 D/msm8974_platform(  602): platform_set_channel_map: set mapping(1 2 0 0 0 0 0 0) for channel:2
+11-06 14:53:02.707 E/msm8974_platform(  602): platform_set_channel_map: Could not set ctl, error:-1 ch_count:2
+11-06 14:53:02.716 D/vendor.qti.vibrator(  685): QTI Vibrator off
+11-06 14:53:02.643 E/[Awinic] aw87xxx_set_profile(    0): not found struct aw87xxx, dev_index = [0]
+11-06 14:53:02.644 E/[Awinic] aw87xxx_pa_dev_0_event(    0): set profile[Music] failed
+11-06 14:53:02.644 E/rouleur_codec rouleur-codec(    0): ASoC: PRE_PMU: AW87XXX event failed: -22
+11-06 14:53:02.738 D/vendor.qti.vibrator(  685): Vibrator on for timeoutMs: 30
+11-06 14:53:02.669 I/__afe_port_start(    0): port id: 0xb030
+11-06 14:53:02.669 I/afe_find_cal_topo_id_by_port(    0): port id: 0xb030, dev_acdb_id: 14
+11-06 14:53:02.669 I/afe_find_cal_topo_id_by_port(    0): top_id:112fc acdb_id:14 afe_port_id:0xb030
+11-06 14:53:02.669 I/afe_get_cal_topology_id(    0): port_id = 0xb030 acdb_id = 14 topology_id = 0x112fc cal_type_index=8 ret=0
+11-06 14:53:02.670 I/afe_send_port_topology_id(    0): AFE set topology id 0x112fc  enable for port 0xb030 ret 0
+11-06 14:53:02.670 I/send_afe_cal_type(    0): cal_index is 0
+11-06 14:53:02.670 I/send_afe_cal_type(    0): dev_acdb_id[170] is 14
+11-06 14:53:02.670 I/afe_find_cal(    0): cal_index 0 port_id 0xb030 port_index 170
+11-06 14:53:02.670 I/afe_find_cal(    0): acdb_id 14 dev_acdb_id 14 sample_rate 48000 afe_sample_rates 48000
+11-06 14:53:02.670 I/afe_find_cal(    0): cal block is a match, size is 0
+11-06 14:53:02.670 I/send_afe_cal_type(    0): Sending cal_index cal 0
+11-06 14:53:02.670 E/send_afe_cal_type(    0): No cal sent for cal_index 0, port_id = 0xb030! ret -22
+11-06 14:53:02.670 I/afe_send_hw_delay(    0): port_id 0xb030 rate 48000 delay_usec 474 status 0
+11-06 14:53:02.769 D/vendor.qti.vibrator(  685): QTI Vibrator off
+11-06 14:53:02.781 E/audio_hw_extn(  602): audio_extn_perf_lock_release: Perf lock release error 
+11-06 14:53:02.781 D/audio_hw_primary(  602): start_output_stream: exit
+11-06 14:53:02.797 D/AutofillManagerService( 1073): Close system dialogs
+11-06 14:53:02.798 I/ActivityTaskManager( 1073): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.DEFAULT] flg=0x10000000 cmp=com.android.launcher3/com.android.quickstep.RecentsActivity (has extras)} from uid 10071
+11-06 14:53:02.803 V/ShadeControllerImpl( 2121): NotificationShadeWindow: com.android.systemui.statusbar.phone.NotificationShadeWindowView{6d7be3f I.E...... ......ID 0,0-720,1280} canPanelBeCollapsed(): false
+11-06 14:53:02.804 D/CompatibilityInfo( 1073): mCompatibilityFlags - 0
+11-06 14:53:02.804 D/CompatibilityInfo( 1073): applicationDensity - 320
+11-06 14:53:02.804 D/CompatibilityInfo( 1073): applicationScale - 1.0
+11-06 14:53:02.806 D/ActivityTrigger( 1073): ActivityTrigger activityPauseTrigger 
+11-06 14:53:02.814 I/system_server( 1073): Background young concurrent copying GC freed 146638(8847KB) AllocSpace objects, 30(988KB) LOS objects, 44% free, 12MB/21MB, paused 2.910ms total 128.780ms
+11-06 14:53:02.814 W/system_server( 1073): Reducing the number of considered missed Gc histogram windows from 132 to 100
+11-06 14:53:02.820 W/unknown:BridgelessReact( 6768): ReactHost{0}.onUserLeaveHint(activity)
+11-06 14:53:02.824 W/unknown:BridgelessReact( 6768): ReactHost{0}.onHostPause(activity)
+11-06 14:53:02.828 W/unknown:BridgelessReact( 6768): ReactContext.onHostPause()
+11-06 14:53:02.847 W/JavaBinder( 1073): BinderProxy is being destroyed but the application did not call unlinkToDeath to unlink all of its death recipients beforehand.  Releasing leaked death recipient: com.android.server.AlarmManagerService$2
+11-06 14:53:02.847 I/BpBinder( 1073): onLastStrongRef automatically unlinking death recipients: <uncached descriptor>
+11-06 14:53:02.848 W/JavaBinder( 1073): BinderProxy is being destroyed but the application did not call unlinkToDeath to unlink all of its death recipients beforehand.  Releasing leaked death recipient: com.android.server.AlarmManagerService$2
+11-06 14:53:02.848 I/BpBinder( 1073): onLastStrongRef automatically unlinking death recipients: <uncached descriptor>
+11-06 14:53:02.892 D/RecentsOrientedState( 2746): current RecentsOrientedState: [this=RecentsOrientedState@2f1ac12 mOrientationHandler=PortraitPagedViewHandler@5385ad8 mDisplayRotation=0 mTouchRotation=0 mRecentsActivityRotation=0 isRecentsActivityRotationAllowed=true mSystemRotation=false mFlags=2]
+11-06 14:53:02.893 I/chatty  ( 2746): uid=10071(com.android.launcher3) identical 2 lines
+11-06 14:53:02.893 D/RecentsOrientedState( 2746): current RecentsOrientedState: [this=RecentsOrientedState@2f1ac12 mOrientationHandler=PortraitPagedViewHandler@5385ad8 mDisplayRotation=0 mTouchRotation=0 mRecentsActivityRotation=0 isRecentsActivityRotationAllowed=true mSystemRotation=false mFlags=2]
+11-06 14:53:02.939 W/APM::AudioPolicyEngine(  702): getDevicesForStrategy() unknown strategy: -1
+11-06 14:53:02.942 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:02.969 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=true
+11-06 14:53:02.990 W/droid.launcher( 2746): Reducing the number of considered missed Gc histogram windows from 165 to 100
+11-06 14:53:03.009 I/ReactNativeJNI( 6768): Error occurred, shutting down websocket connection: WebSocket exception Failed to connect to localhost/127.0.0.1:8081
+11-06 14:53:03.144 E/Layer   (  716): [Surface(name=Task=71)/@0xf036386 - animation-leash#0] No local sync point found
+11-06 14:53:03.145 E/Layer   (  716): [Surface(name=Task=80)/@0x5fd7d5a - animation-leash#0] No local sync point found
+11-06 14:53:03.172 I/ReactNativeJNI( 6768): Memory warning (pressure level: TRIM_MEMORY_UI_HIDDEN) received by JS VM, ignoring because it's non-severe
+11-06 14:53:03.726 D/QCNEJ/WlanStaInfoRelay( 2379): Received action: android.net.wifi.RSSI_CHANGED
+11-06 14:53:03.955 I/ActivityManager( 1073): Killing 6768:com.ma1heussantos.teste/u0a94 (adj 905): remove task
+11-06 14:53:03.961 I/ActivityTaskManager( 1073): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000000 cmp=com.android.launcher3/.uioverrides.QuickstepLauncher} from uid 10071
+11-06 14:53:03.961 I/Zygote  (  549): Process 6768 exited due to signal 9 (Killed)
+11-06 14:53:03.966 D/CompatibilityInfo( 1073): mCompatibilityFlags - 0
+11-06 14:53:03.966 D/CompatibilityInfo( 1073): applicationDensity - 320
+11-06 14:53:03.966 D/CompatibilityInfo( 1073): applicationScale - 1.0
+11-06 14:53:03.968 D/ActivityTrigger( 1073): ActivityTrigger activityPauseTrigger 
+11-06 14:53:03.970 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=false
+11-06 14:53:03.970 W/audio_hw_primary(  602): out_write: underrun(110) frames_by_time(48182) > out->last_fifo_frames_remaining(384)
+11-06 14:53:03.985 E/ActivityManager( 1073): ProcessRecord{b9503b5 6768:com.ma1heussantos.teste/u0a94} is attached to a previous process
+11-06 14:53:03.986 E/ActivityManager( 1073): Already have existing proc ProcessRecord{b9503b5 6768:com.ma1heussantos.teste/u0a94} when adding ProcessRecord{83a71b1 0:com.ma1heussantos.teste/u0a94}
+11-06 14:53:03.987 I/DropBoxManagerService( 1073): add tag=system_server_wtf isTagEnabled=true flags=0x2
+11-06 14:53:03.987 D/CompatibilityChangeReporter( 1073): Compat change id reported: 135634846; UID 10094; state: DISABLED
+11-06 14:53:03.988 D/CompatibilityChangeReporter( 1073): Compat change id reported: 135754954; UID 10094; state: ENABLED
+11-06 14:53:04.001 E/TaskPersister( 1073): File error accessing recents directory (directory doesn't exist?).
+11-06 14:53:04.002 I/libprocessgroup( 1073): Successfully killed process cgroup uid 10094 pid 6768 in 45ms
+11-06 14:53:04.004 I/libprocessgroup( 1073): Successfully killed process cgroup uid 10094 pid 6768 in 0ms
+11-06 14:53:04.007 I/DropBoxManagerService( 1073): add tag=system_server_wtf isTagEnabled=true flags=0x2
+11-06 14:53:04.008 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=true
+11-06 14:53:04.010 D/AutofillManagerService( 1073): Close system dialogs
+11-06 14:53:04.015 V/ShadeControllerImpl( 2121): NotificationShadeWindow: com.android.systemui.statusbar.phone.NotificationShadeWindowView{6d7be3f I.E...... ......ID 0,0-720,1280} canPanelBeCollapsed(): false
+11-06 14:53:04.370 D/RecentsOrientedState( 2746): current RecentsOrientedState: [this=RecentsOrientedState@d2fc5bb mOrientationHandler=PortraitPagedViewHandler@5385ad8 mDisplayRotation=0 mTouchRotation=0 mRecentsActivityRotation=0 isRecentsActivityRotationAllowed=false mSystemRotation=false mFlags=259]
+11-06 14:53:04.304 I/binder  (    0): undelivered transaction 455367, process died.
+11-06 14:53:04.391 I/WindowManager( 1073): WIN DEATH: Window{5619880 u0 com.ma1heussantos.teste/com.ma1heussantos.teste.MainActivity}
+11-06 14:53:04.371 I/chatty  ( 2746): uid=10071(com.android.launcher3) identical 2 lines
+11-06 14:53:04.371 D/RecentsOrientedState( 2746): current RecentsOrientedState: [this=RecentsOrientedState@d2fc5bb mOrientationHandler=PortraitPagedViewHandler@5385ad8 mDisplayRotation=0 mTouchRotation=0 mRecentsActivityRotation=0 isRecentsActivityRotationAllowed=false mSystemRotation=false mFlags=259]
+11-06 14:53:04.391 W/InputDispatcher( 1073): Attempted to unregister already unregistered input channel '5619880 com.ma1heussantos.teste/com.ma1heussantos.teste.MainActivity (server)'
+11-06 14:53:04.397 W/ActivityManager( 1073): Slow operation: 410ms so far, now at startProcess: asking zygote to start proc
+11-06 14:53:04.398 D/CompatibilityChangeReporter( 1073): Compat change id reported: 143937733; UID 10094; state: ENABLED
+11-06 14:53:04.408 W/ActivityManager( 1073): setHasOverlayUi called on unknown pid: 6768
+11-06 14:53:04.411 D/Zygote  (  549): Forked child process 6850
+11-06 14:53:04.415 W/ActivityManager( 1073): Slow operation: 428ms so far, now at startProcess: returned from zygote!
+11-06 14:53:04.415 W/ActivityManager( 1073): Slow operation: 429ms so far, now at startProcess: done updating battery stats
+11-06 14:53:04.416 W/ActivityManager( 1073): Slow operation: 429ms so far, now at startProcess: building log message
+11-06 14:53:04.416 I/ActivityManager( 1073): Start proc 6850:com.ma1heussantos.teste/u0a94 for null
+11-06 14:53:04.416 W/ActivityManager( 1073): Slow operation: 429ms so far, now at startProcess: starting to update pids map
+11-06 14:53:04.417 W/ActivityManager( 1073): Slow operation: 430ms so far, now at startProcess: done updating pids map
+11-06 14:53:04.418 W/Zygote  ( 6850): Unable to open libbeluga.so: dlopen failed: library "libbeluga.so" not found.
+11-06 14:53:04.429 I/eussantos.test( 6850): Late-enabling -Xcheck:jni
+11-06 14:53:04.464 I/eussantos.test( 6850): Unquickening 18 vdex files!
+11-06 14:53:04.473 I/adbd    ( 4777): jdwp connection from 6850
+11-06 14:53:04.492 D/CompatibilityInfo( 1073): mCompatibilityFlags - 0
+11-06 14:53:04.492 D/CompatibilityInfo( 1073): applicationDensity - 320
+11-06 14:53:04.492 D/CompatibilityInfo( 1073): applicationScale - 1.0
+11-06 14:53:04.506 E/[schedu][0xaf0b516213][14:53:04.591823] wlan(    0): [1855:E:WMA] wma_roam_stats_event_handler: Roam 11kv stats extract failed vdev 0
+11-06 14:53:04.642 I/Perf    ( 6850): Connecting to perf service.
+11-06 14:53:04.657 D/NetworkSecurityConfig( 6850): No Network Security Config specified, using platform default
+11-06 14:53:04.659 D/NetworkSecurityConfig( 6850): No Network Security Config specified, using platform default
+11-06 14:53:04.736 W/SoLoader( 6850): Initializing SoLoader: 0
+11-06 14:53:04.737 W/SoLoader( 6850): Recording new base apk path: /data/app/~~A6c6MjxbPxVfs__u5avMZQ==/com.ma1heussantos.teste-69Ks_fkc0rBti4t57Hsxzg==/base.apk
+11-06 14:53:04.737 W/SoLoader( 6850): Previously recorded 0 base apk paths.
+11-06 14:53:04.740 I/SoLoader( 6850): Preparing SO source: DirectorySoSource[root = /vendor/lib64 flags = 2]
+11-06 14:53:04.741 I/SoLoader( 6850): Preparing SO source: DirectorySoSource[root = /system/lib64 flags = 2]
+11-06 14:53:04.741 I/SoLoader( 6850): Preparing SO source: DirectApkSoSource[root = [/data/app/~~A6c6MjxbPxVfs__u5avMZQ==/com.ma1heussantos.teste-69Ks_fkc0rBti4t57Hsxzg==/base.apk!/lib/arm64-v8a]]
+11-06 14:53:04.861 I/SoLoader( 6850): Preparing SO source: ApplicationSoSource[DirectorySoSource[root = /data/app/~~A6c6MjxbPxVfs__u5avMZQ==/com.ma1heussantos.teste-69Ks_fkc0rBti4t57Hsxzg==/lib/arm64 flags = 0]]
+11-06 14:53:04.861 I/SoLoader( 6850): init finish: 4 SO sources prepared
+11-06 14:53:04.862 W/SoLoader( 6850): SoLoader initialized: 8
+11-06 14:53:04.884 W/linker  ( 6850): Warning: "/data/app/~~A6c6MjxbPxVfs__u5avMZQ==/com.ma1heussantos.teste-69Ks_fkc0rBti4t57Hsxzg==/base.apk!/lib/arm64-v8a/libc++_shared.so" unused DT entry: unknown processor-specific (type 0x70000001 arg 0x0) (ignoring)
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Entering merged library JNI_OnLoad.
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Preparing 11 pre-merged libs (including stub)
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Preparing to register libfabricjni_so.  onload_func: 0x702d212970
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Preparing to register libreact_devsupportjni_so.  onload_func: 0x702d46494c
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Preparing to register libreact_featureflagsjni_so.  onload_func: 0x702d470e3c
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Preparing to register libreact_newarchdefaults_so.  onload_func: 0x702d4e3988
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Preparing to register libreactnativeblob_so.  onload_func: 0x702d6eb06c
+11-06 14:53:04.943 D/jni_lib_merge( 6850): Preparing to register libreactnativejni_so.  onload_func: 0x702d746f7c
+11-06 14:53:04.944 D/jni_lib_merge( 6850): Preparing to register librninstance_so.  onload_func: 0x702d791b58
+11-06 14:53:04.944 D/jni_lib_merge( 6850): Preparing to register libturbomodulejsijni_so.  onload_func: 0x702d8bdd84
+11-06 14:53:04.944 D/jni_lib_merge( 6850): Preparing to register libuimanagerjni_so.  onload_func: 0x702d8d8f80
+11-06 14:53:04.944 D/jni_lib_merge( 6850): Preparing to register libyoga_so.  onload_func: 0x702d8e71a8
+11-06 14:53:04.944 D/jni_lib_merge( 6850): About to register 10 actual methods.
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Entering merged library JNI_OnLoad.
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing 11 pre-merged libs (including stub)
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libfabricjni_so.  onload_func: 0x702d212970
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libreact_devsupportjni_so.  onload_func: 0x702d46494c
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libreact_featureflagsjni_so.  onload_func: 0x702d470e3c
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libreact_newarchdefaults_so.  onload_func: 0x702d4e3988
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libreactnativeblob_so.  onload_func: 0x702d6eb06c
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libreactnativejni_so.  onload_func: 0x702d746f7c
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register librninstance_so.  onload_func: 0x702d791b58
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libturbomodulejsijni_so.  onload_func: 0x702d8bdd84
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libuimanagerjni_so.  onload_func: 0x702d8d8f80
+11-06 14:53:04.972 D/jni_lib_merge( 6850): Preparing to register libyoga_so.  onload_func: 0x702d8e71a8
+11-06 14:53:04.972 D/jni_lib_merge( 6850): About to register 10 actual methods.
+11-06 14:53:05.009 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=false
+11-06 14:53:05.009 W/audio_hw_primary(  602): out_write: underrun(111) frames_by_time(48077) > out->last_fifo_frames_remaining(384)
+11-06 14:53:05.047 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=true
+11-06 14:53:05.707 E/        (    0): cw_update_data vol = 4070  cap = 87 temp = 340
+11-06 14:53:05.710 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:05.710 I/chatty  (    0): uid=0(root) logd identical 1 line
+11-06 14:53:05.711 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:05.713 E/ALG     (    0): get_time_to_full_locked: failed to get ACT_BATT_CAP rc=-19
+11-06 14:53:05.714 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:05.715 W/healthd (    0): battery l=87 v=4070 t=34.0 h=2 st=2 c=-224304 fc=0 cc=0 chg=u
+11-06 14:53:05.715 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:05.717 E/ALG     (    0): get_time_to_full_locked: failed to get ACT_BATT_CAP rc=-19
+11-06 14:53:05.803 V/LocSvc_BatteryListener(  628): healthInfoChanged_2_1:236] healthInfoChanged_2_1: 2
+11-06 14:53:05.804 V/LocSvc_BatteryListener(  628): healthInfoChanged:225] healthInfoChanged: 2
+11-06 14:53:05.806 E/BatteryService( 1073): Processing new values: info={.chargerAcOnline = false, .chargerUsbOnline = true, .chargerWirelessOnline = false, .maxChargingCurrent = 0, .maxChargingVoltage = 0, .batteryStatus = CHARGING, .batteryHealth = GOOD, .batteryPresent = true, .batteryLevel = 87, .batteryVoltage = 4070, .batteryTemperature = 340, .batteryCurrent = -224304, .batteryCycleCount = 0, .batteryFullCharge = 0, .batteryChargeCounter = 0, .batteryTechnology = Li-ion}, mBatteryLevelCritical=false, batteryTemperature=340, mPlugType=2
+11-06 14:53:05.807 E/BatteryService( 1073): shutdownIfOverTempLocked batteryTemperature=340
+11-06 14:53:05.807 D/BatteryService( 1073): Sending ACTION_BATTERY_CHANGED. scale:100, info:{.chargerAcOnline = false, .chargerUsbOnline = true, .chargerWirelessOnline = false, .maxChargingCurrent = 0, .maxChargingVoltage = 0, .batteryStatus = CHARGING, .batteryHealth = GOOD, .batteryPresent = true, .batteryLevel = 87, .batteryVoltage = 4070, .batteryTemperature = 340, .batteryCurrent = -224304, .batteryCycleCount = 0, .batteryFullCharge = 0, .batteryChargeCounter = 0, .batteryTechnology = Li-ion}
+11-06 14:53:05.810 D/QtiCarrierConfigHelper( 2433): WARNING, no carrier configs on phone Id: 0
+11-06 14:53:05.811 D/KeyguardUpdateMonitor( 2121): received broadcast android.intent.action.BATTERY_CHANGED
+11-06 14:53:05.817 D/KeyguardUpdateMonitor( 2121): handleBatteryUpdate
+11-06 14:53:06.048 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=false
+11-06 14:53:06.049 D/audio_hw_primary(  602): out_standby: enter: stream (0xeeac64c0) usecase(1: low-latency-playback)
+11-06 14:53:06.028 E/[Awinic] aw87xxx_set_profile(    0): not found struct aw87xxx, dev_index = [0]
+11-06 14:53:06.029 E/[Awinic] aw87xxx_pa_dev_0_event(    0): set profile[Off] failed
+11-06 14:53:06.029 E/rouleur_codec rouleur-codec(    0): ASoC: POST_PMD: AW87XXX event failed: -22
+11-06 14:53:06.030 I/afe_close(    0): port_id = 0xb030
+11-06 14:53:06.120 D/audio_hw_primary(  602): disable_audio_route: reset and update mixer path: low-latency-playback
+11-06 14:53:06.122 D/soundtrigger(  602): audio_extn_sound_trigger_update_stream_status: uc_info->id 1 of type 0 for Event 2, with Raise=0
+11-06 14:53:06.122 D/hardware_info(  602): hw_info_append_hw_type : device_name = speaker
+11-06 14:53:06.122 D/audio_hw_primary(  602): disable_snd_device: snd_device(2: speaker)
+11-06 14:53:06.129 I/soundtrigger(  602): audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 0, with Raise=0
+11-06 14:53:06.133 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:06.766 D/QCNEJ/WlanStaInfoRelay( 2379): Received action: android.net.wifi.RSSI_CHANGED
+11-06 14:53:06.943 D/logd    (    0): logdr: UID=2000 GID=2000 PID=6873 b tail=0 logMask=99 pid=0 start=0ns timeout=0ns
+11-06 14:53:07.449 E/TaskPersister( 1073): File error accessing recents directory (directory doesn't exist?).
+11-06 14:53:08.828 I/LauncherActivity( 2746): BaseDraggingActivity, startActivitySafely
+11-06 14:53:08.836 I/ActivityTaskManager( 1073): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.ma1heussantos.teste/.MainActivity bnds=[27,861][193,1080]} from uid 10071
+11-06 14:53:08.842 D/audio_hw_primary(  602): start_output_stream: enter: stream(0xeeac64c0)usecase(1: low-latency-playback) devices(0x2) is_haptic_usecase(0)
+11-06 14:53:08.843 E/ANDR-PERF-TARGET(  673): Error: Invalid logical cluster id 0
+11-06 14:53:08.844 E/ANDR-PERF-REQUEST(  673): invalid request
+11-06 14:53:08.844 E/ANDR-PERF-MPCTL(  673): invalid request, no optimizations performed
+11-06 14:53:08.844 E/audio_hw_extn(  602): audio_extn_perf_lock_acquire: Failed to acquire perf lock, err: -1
+11-06 14:53:08.844 D/audio_hw_primary(  602): select_devices for use case (low-latency-playback)
+11-06 14:53:08.845 I/msm8974_platform(  602): platform_check_and_set_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 1 device (speaker)
+11-06 14:53:08.845 I/msm8974_platform(  602): platform_check_and_set_codec_backend_cfg: new_snd_devices[0] is 2
+11-06 14:53:08.845 I/msm8974_platform(  602): platform_check_codec_backend_cfg:becf: afe: bitwidth 16, samplerate 48000 channels 2, backend_idx 0 usecase = 1 device (speaker)
+11-06 14:53:08.846 D/msm8974_platform(  602): platform_check_codec_backend_cfg:becf: updated afe: bitwidth 16, samplerate 48000 channels 2,backend_idx 0 usecase = 1 device (speaker)
+11-06 14:53:08.847 I/msm8974_platform(  602): platform_check_codec_backend_cfg:becf: afe: Codec selected backend: 0 updated bit width: 16 and sample rate: 48000
+11-06 14:53:08.847 D/audio_hw_primary(  602): check_usecases_codec_backend:becf: force routing 0
+11-06 14:53:08.847 D/audio_hw_primary(  602): check_usecases_codec_backend:becf: (85) check_usecases curr device: speaker, usecase device: backends match 0
+11-06 14:53:08.847 D/audio_hw_primary(  602): check_usecases_codec_backend:becf: check_usecases num.of Usecases to switch 0
+11-06 14:53:08.847 D/hardware_info(  602): hw_info_append_hw_type : device_name = speaker
+11-06 14:53:08.847 D/audio_hw_primary(  602): enable_snd_device: snd_device(2: speaker)
+11-06 14:53:08.847 D/msm8974_platform(  602): platform_get_island_cfg_on_device:island cfg status on snd_device = (speaker 0)
+11-06 14:53:08.847 I/soundtrigger(  602): audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 1, with Raise=0
+11-06 14:53:08.847 D/audio_route(  602): Apply path: speaker
+11-06 14:53:08.849 E/ANDR-PERF-JNI( 1073): com_qualcomm_qtiperformance_native_perf_io_prefetch_start
+11-06 14:53:08.853 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:08.854 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:08.859 D/soundtrigger(  602): audio_extn_sound_trigger_update_stream_status: uc_info->id 1 of type 0 for Event 3, with Raise=0
+11-06 14:53:08.859 D/audio_hw_utils(  602): audio_extn_utils_send_app_type_cfg: usecase->out_snd_device speaker
+11-06 14:53:08.859 I/audio_hw_utils(  602): send_app_type_cfg_for_device PLAYBACK app_type 69937, acdb_dev_id 14, sample_rate 48000, snd_device_be_idx 187
+11-06 14:53:08.860 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:08.860 D/ACDB-LOADER(  602): ACDB -> send_audio_cal, acdb_id = 14, path = 0, app id = 0x11131, sample rate = 48000, use_case = 0,buffer_idx_w_path =0, afe_sample_rate = 48000, cal_mode = 1, offset_index = 0
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> send_asm_topology
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TOPOLOGY_ID
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> send_adm_topology
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TOPOLOGY_ID
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> send_audtable
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE_SIZE
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> AUDIO_SET_AUDPROC_CAL cal_type[11] acdb_id[14] app_type[69937]
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> send_audvoltable
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE, vol index 0
+11-06 14:53:08.861 D/ACDB-LOADER(  602): ACDB -> AUDIO_SET_VOL_CAL cal type = 12
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE_SIZE
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> send_audstrmtable
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> audstrm_cal->cal_type.cal_data.cal_size = 20
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> send_afe_topology
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AFE_TOPOLOGY_ID
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 14, Topology Id 112fc
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> send_afe_cal
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE
+11-06 14:53:08.862 D/android.hardware.audio.service(  602): Failed to fetch the lookup information of the device 0000000E 
+11-06 14:53:08.862 D/ACDB-LOADER(  602): Error: ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE Returned = -19
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE
+11-06 14:53:08.862 D/android.hardware.audio.service(  602): Failed to fetch the lookup information of the device 0000000E 
+11-06 14:53:08.862 D/ACDB-LOADER(  602): Error: ACDB AFE returned = -19
+11-06 14:53:08.862 D/ACDB-LOADER(  602): ACDB -> AUDIO_SET_AFE_CAL cal_type[16] acdb_id[14]
+11-06 14:53:08.863 D/ACDB-LOADER(  602): ACDB -> send_hw_delay : acdb_id = 14 path = 0
+11-06 14:53:08.863 D/ACDB-LOADER(  602): ACDB -> ACDB_AVSYNC_INFO: ACDB_CMD_GET_DEVICE_PROPERTY
+11-06 14:53:08.863 D/audio_hw_primary(  602): enable_audio_route: apply mixer and update path: low-latency-playback
+11-06 14:53:08.863 D/audio_route(  602): Apply path: low-latency-playback
+11-06 14:53:08.864 D/audio_hw_primary(  602): select_devices: done
+11-06 14:53:08.864 D/msm8974_platform(  602): platform_set_channel_map mixer_ctl_name:Playback Channel Map9
+11-06 14:53:08.865 D/msm8974_platform(  602): platform_set_channel_map: set mapping(1 2 0 0 0 0 0 0) for channel:2
+11-06 14:53:08.865 E/msm8974_platform(  602): platform_set_channel_map: Could not set ctl, error:-1 ch_count:2
+11-06 14:53:08.780 E/msm_pcm_chmap_ctl_put(    0): substream ref_count:0 invalid
+11-06 14:53:08.871 D/CompatibilityInfo( 1073): mCompatibilityFlags - 0
+11-06 14:53:08.871 D/CompatibilityInfo( 1073): applicationDensity - 320
+11-06 14:53:08.871 D/CompatibilityInfo( 1073): applicationScale - 1.0
+11-06 14:53:08.874 D/ActivityTrigger( 1073): ActivityTrigger activityPauseTrigger 
+11-06 14:53:08.877 E/ANDR-IOP(  672): io prefetch is disabled
+11-06 14:53:08.803 E/[Awinic] aw87xxx_set_profile(    0): not found struct aw87xxx, dev_index = [0]
+11-06 14:53:08.803 E/[Awinic] aw87xxx_pa_dev_0_event(    0): set profile[Music] failed
+11-06 14:53:08.803 E/rouleur_codec rouleur-codec(    0): ASoC: PRE_PMU: AW87XXX event failed: -22
+11-06 14:53:08.902 I/ActivityTaskManager( 1073): The Process com.ma1heussantos.teste Already Exists in BG. So sending its PID: 6850
+11-06 14:53:08.905 D/CompatibilityInfo( 1073): mCompatibilityFlags - 0
+11-06 14:53:08.906 D/CompatibilityInfo( 1073): applicationDensity - 320
+11-06 14:53:08.906 D/CompatibilityInfo( 1073): applicationScale - 1.0
+11-06 14:53:08.918 D/OomAdjuster( 1073): App adj change from cached state to fg state : 6850 com.ma1heussantos.teste
+11-06 14:53:08.919 E/ANDR-PERF-TARGET(  673): Error: Invalid logical cluster id 0
+11-06 14:53:08.919 E/ANDR-PERF-REQUEST(  673): Translate to physical failed
+11-06 14:53:08.832 I/__afe_port_start(    0): port id: 0xb030
+11-06 14:53:08.832 I/afe_find_cal_topo_id_by_port(    0): port id: 0xb030, dev_acdb_id: 14
+11-06 14:53:08.832 I/afe_find_cal_topo_id_by_port(    0): top_id:112fc acdb_id:14 afe_port_id:0xb030
+11-06 14:53:08.832 I/afe_get_cal_topology_id(    0): port_id = 0xb030 acdb_id = 14 topology_id = 0x112fc cal_type_index=8 ret=0
+11-06 14:53:08.832 I/afe_send_port_topology_id(    0): AFE set topology id 0x112fc  enable for port 0xb030 ret 0
+11-06 14:53:08.832 I/send_afe_cal_type(    0): cal_index is 0
+11-06 14:53:08.832 I/send_afe_cal_type(    0): dev_acdb_id[170] is 14
+11-06 14:53:08.832 I/afe_find_cal(    0): cal_index 0 port_id 0xb030 port_index 170
+11-06 14:53:08.832 I/afe_find_cal(    0): acdb_id 14 dev_acdb_id 14 sample_rate 48000 afe_sample_rates 48000
+11-06 14:53:08.832 I/afe_find_cal(    0): cal block is a match, size is 0
+11-06 14:53:08.832 I/send_afe_cal_type(    0): Sending cal_index cal 0
+11-06 14:53:08.832 E/send_afe_cal_type(    0): No cal sent for cal_index 0, port_id = 0xb030! ret -22
+11-06 14:53:08.832 I/afe_send_hw_delay(    0): port_id 0xb030 rate 48000 delay_usec 474 status 0
+11-06 14:53:08.920 E/ANDR-PERF-RESOURCEQS(  673): Failed to apply optimization [10, 8]
+11-06 14:53:08.944 E/audio_hw_extn(  602): audio_extn_perf_lock_release: Perf lock release error 
+11-06 14:53:08.944 D/audio_hw_primary(  602): start_output_stream: exit
+11-06 14:53:08.953 W/DisplayIdentification(  716): Invalid EDID: falling back to serial number due to missing display name.
+11-06 14:53:08.953 W/DisplayIdentification(  716): Invalid EDID: falling back to ASCII text due to missing serial number.
+11-06 14:53:09.002 D/AppCompatDelegate( 6850): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+11-06 14:53:09.101 W/eussantos.test( 6850): Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (greylist, reflection, allowed)
+11-06 14:53:09.102 W/APM::AudioPolicyEngine(  702): getDevicesForStrategy() unknown strategy: -1
+11-06 14:53:09.103 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:09.130 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=true
+11-06 14:53:09.225 W/unknown:BridgelessReact( 6850): ReactHost{0}.startSurface(surfaceId = 0): Schedule
+11-06 14:53:09.226 W/unknown:BridgelessReact( 6850): ReactHost{0}.attachSurface(surfaceId = 0)
+11-06 14:53:09.228 W/unknown:BridgelessReact( 6850): ReactHost{0}.getOrCreateReactInstanceTask()
+11-06 14:53:09.231 W/unknown:BridgelessReact( 6850): ReactHost{0}.getOrCreateReactInstanceTask(): Start
+11-06 14:53:09.233 W/unknown:BridgelessReact( 6850): ReactHost{0}.getJSBundleLoader()
+11-06 14:53:09.234 W/unknown:BridgelessReact( 6850): ReactHost{0}.isMetroRunning()
+11-06 14:53:09.257 W/unknown:BridgelessReact( 6850): ReactHost{0}.onHostResume(activity)
+11-06 14:53:09.258 W/unknown:ReactNative( 6850): Packager connection already open, nooping.
+11-06 14:53:09.305 W/unknown:ReactNative( 6850): The packager does not seem to be running as we got an IOException requesting its status: Failed to connect to localhost/127.0.0.1:8081
+11-06 14:53:09.305 W/unknown:BridgelessReact( 6850): ReactHost{0}.isMetroRunning(): Async result = false
+11-06 14:53:09.308 W/unknown:BridgelessReact( 6850): ReactHost{0}.getOrCreateReactContext(): Creating BridgelessReactContext
+11-06 14:53:09.309 W/unknown:BridgelessReact( 6850): ReactHost{0}.getOrCreateReactInstanceTask(): Creating ReactInstance
+11-06 14:53:09.310 W/unknown:ReconnectingWebSocket( 6850): Couldn't connect to "ws://localhost:8081/message?device=GPOS780%20-%2011%20-%20API%2030&app=com.ma1heussantos.teste&clientid=BridgelessDevSupportManager", will silently retry
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): QUALCOMM build                   : 5ac347592d, I5b26abddf4
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): Build Date                       : 12/24/21
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): OpenGL ES Shader Compiler Version: EV031.32.02.17
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): Local Branch                     : 
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): Remote Branch                    : 
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): Remote Branch                    : 
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): Reconstruct Branch               : 
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): Build Config                     : S P 10.0.7 AArch64
+11-06 14:53:09.338 I/AdrenoGLES-0( 6850): Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+11-06 14:53:09.352 I/AdrenoGLES-0( 6850): PFP: 0x017aa047, ME: 0x00000000
+11-06 14:53:09.385 D/jni_lib_merge( 6850): Entering merged library JNI_OnLoad.
+11-06 14:53:09.385 D/jni_lib_merge( 6850): Preparing 4 pre-merged libs (including stub)
+11-06 14:53:09.385 D/jni_lib_merge( 6850): Preparing to register libhermes_executor_so.  onload_func: 0x7021b1d5b0
+11-06 14:53:09.385 D/jni_lib_merge( 6850): Preparing to register libhermesinstancejni_so.  onload_func: 0x7021b56dc8
+11-06 14:53:09.385 D/jni_lib_merge( 6850): Preparing to register libjsijniprofiler_so.  onload_func: 0x7021b59054
+11-06 14:53:09.385 D/jni_lib_merge( 6850): About to register 3 actual methods.
+11-06 14:53:09.414 I/ReactNativeJNI( 6850): Error occurred, shutting down websocket connection: WebSocket exception Failed to connect to localhost/127.0.0.1:8081
+11-06 14:53:09.415 W/ReactNativeJNI( 6850): Couldn't connect to packager, will silently retry
+11-06 14:53:09.426 E/Layer   (  716): [Surface(name=Task=1)/@0x3b2dbad - animation-leash#0] No local sync point found
+11-06 14:53:09.426 E/Layer   (  716): [Surface(name=Task=1)/@0x3b2dbad - animation-leash#0] No local sync point found
+11-06 14:53:09.427 E/Layer   (  716): [Surface(name=Task=81)/@0x83ecc01 - animation-leash#0] No local sync point found
+11-06 14:53:09.427 E/Layer   (  716): [Surface(name=Task=81)/@0x83ecc01 - animation-leash#0] No local sync point found
+11-06 14:53:09.650 I/eussantos.test( 6850): Waiting for a blocking GC ProfileSaver
+11-06 14:53:10.132 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=false
+11-06 14:53:10.133 W/audio_hw_primary(  602): out_write: underrun(112) frames_by_time(48235) > out->last_fifo_frames_remaining(384)
+11-06 14:53:10.174 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=true
+11-06 14:53:10.192 I/ExpoModulesCore( 6850): ✅ AppContext was initialized
+11-06 14:53:10.244 W/ReactNativeJNI( 6850): Component property map contains multiple entries for 'borderColor'. Ensure all calls to convertRawProp use a consistent prefix, name and suffix.
+11-06 14:53:10.245 W/ReactNativeJNI( 6850): Component property map contains multiple entries for 'borderStyle'. Ensure all calls to convertRawProp use a consistent prefix, name and suffix.
+11-06 14:53:10.290 W/unknown:BridgelessReact( 6850): ReactHost{0}.getOrCreateReactInstanceTask(): Loading JS Bundle
+11-06 14:53:10.291 W/unknown:BridgelessReact( 6850): ReactHost{0}.getOrCreateReactInstanceTask(): Calling DevSupportManagerBase.onNewReactContextCreated(reactContext)
+11-06 14:53:10.297 W/unknown:BridgelessReact( 6850): ReactHost{0}.startSurface(surfaceId = 0): Execute
+11-06 14:53:10.298 W/unknown:ReactNative( 6850): Packager connection already open, nooping.
+11-06 14:53:10.298 W/unknown:BridgelessReact( 6850): ReactContext.onHostResume()
+11-06 14:53:10.310 W/unknown:BridgelessReact( 6850): ReactHost{0}.getOrCreateReactInstanceTask(): Executing ReactInstanceEventListeners
+11-06 14:53:10.357 I/eussantos.test( 6850): Waiting for a blocking GC ClassLinker
+11-06 14:53:10.389 I/eussantos.test( 6850): WaitForGcToComplete blocked ClassLinker on ClassLinker for 31.605ms
+11-06 14:53:10.403 D/ProfileInstaller( 6850): Installing profile for com.ma1heussantos.teste
+11-06 14:53:10.463 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.th3rdwave.safeareacontext.SafeAreaProviderManager
+11-06 14:53:10.486 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.uimanager.LayoutShadowNode
+11-06 14:53:10.501 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.SearchBarManager
+11-06 14:53:10.507 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ScreenFooterManager
+11-06 14:53:10.512 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.th3rdwave.safeareacontext.SafeAreaViewManager
+11-06 14:53:10.524 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.th3rdwave.safeareacontext.SafeAreaViewShadowNode
+11-06 14:53:10.529 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ScreenViewManager
+11-06 14:53:10.541 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ScreenContainerViewManager
+11-06 14:53:10.545 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ModalScreenViewManager
+11-06 14:53:10.548 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ScreenStackHeaderSubviewManager
+11-06 14:53:10.552 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ScreenStackViewManager
+11-06 14:53:10.556 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ScreenStackHeaderConfigViewManager
+11-06 14:53:10.562 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.rnscreens.ScreenContentWrapperManager
+11-06 14:53:10.728 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.debuggingoverlay.DebuggingOverlayManager
+11-06 14:53:10.745 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.gesturehandler.react.RNGestureHandlerButtonViewManager
+11-06 14:53:10.766 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.safeareaview.ReactSafeAreaViewManager
+11-06 14:53:10.768 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.safeareaview.ReactSafeAreaViewShadowNode
+11-06 14:53:10.786 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.modal.ReactModalHostManager
+11-06 14:53:10.803 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageViewManager
+11-06 14:53:10.804 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.frescosupport.FrescoBasedReactTextInlineImageShadowNode
+11-06 14:53:10.822 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.progressbar.ReactProgressBarViewManager
+11-06 14:53:10.826 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.progressbar.ProgressBarShadowNode
+11-06 14:53:10.841 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollViewManager
+11-06 14:53:10.867 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.image.ReactImageManager
+11-06 14:53:10.887 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.ReactTextViewManager
+11-06 14:53:10.894 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.ReactTextShadowNode
+11-06 14:53:10.915 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.scroll.ReactHorizontalScrollContainerViewManager
+11-06 14:53:10.930 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.unimplementedview.ReactUnimplementedViewManager
+11-06 14:53:10.947 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.scroll.ReactScrollViewManager
+11-06 14:53:10.969 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.view.ReactViewManager
+11-06 14:53:10.984 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.drawer.ReactDrawerLayoutManager
+11-06 14:53:11.002 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchManager
+11-06 14:53:11.007 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.switchview.ReactSwitchShadowNode
+11-06 14:53:11.021 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.ReactVirtualTextViewManager
+11-06 14:53:11.022 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.ReactVirtualTextShadowNode
+11-06 14:53:11.035 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.swiperefresh.SwipeRefreshLayoutManager
+11-06 14:53:11.056 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.ReactRawTextManager
+11-06 14:53:11.058 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.text.ReactRawTextShadowNode
+11-06 14:53:11.063 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.textinput.ReactTextInputManager
+11-06 14:53:11.076 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.facebook.react.views.textinput.ReactTextInputShadowNode
+11-06 14:53:11.095 W/unknown:ViewManagerPropertyUpdater( 6850): Could not find generated setter for class com.swmansion.gesturehandler.react.RNGestureHandlerRootViewManager
+11-06 14:53:11.121 W/BridgelessReactContext( 6850): [WARNING] Bridgeless doesn't support CatalystInstance. Accessing an API that's not part of the new architecture is not encouraged usage.
+11-06 14:53:11.139 I/ExpoModulesCore( 6850): ✅ JSI interop was installed
+11-06 14:53:11.145 I/ExpoModulesCore( 6850): ✅ Constants were exported
+11-06 14:53:11.174 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=false
+11-06 14:53:11.175 W/audio_hw_primary(  602): out_write: underrun(113) frames_by_time(48245) > out->last_fifo_frames_remaining(384)
+11-06 14:53:11.216 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=true
+11-06 14:53:11.259 I/ReactNativeJS( 6850): Running "main"
+11-06 14:53:11.311 W/eussantos.test( 6850): CheckJNI: method to register "installJSIBindings" not in the given class. This is slow, consider changing your RegisterNatives calls.
+11-06 14:53:11.600 I/ReactNativeJNI( 6850): Error occurred, shutting down websocket connection: WebSocket exception Failed to connect to localhost/127.0.0.1:8081
+11-06 14:53:11.792 I/ActivityTaskManager( 1073): Displayed com.ma1heussantos.teste/.MainActivity: +2s946ms
+11-06 14:53:11.826 E/ReactNativeJS( 6850): Error: Call to function 'ExpoAsset.downloadAsync' has been rejected.
+11-06 14:53:11.826 E/ReactNativeJS( 6850): → Caused by: Unable to download asset from url: node_modules_expogooglefonts_roboto_400regular_roboto_400regular
+11-06 14:53:11.826 E/ReactNativeJS( 6850): 
+11-06 14:53:11.826 E/ReactNativeJS( 6850): This error is located at:
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at RootLayout (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:109741:44)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at Try (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:78234:22)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at Suspense (<anonymous>)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at Route (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:76121:24)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at BaseRoute (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:76474:24)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at StaticContainer (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:67289:17)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at EnsureSingleNavigator (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:63281:24)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at SceneView (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:67134:22)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at PreventRemoveProvider (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:65768:25)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at NavigationContent (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:66863:22)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at anonymous (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:66878:27)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at Content (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85927:51)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at RNCSafeAreaProvider (<anonymous>)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at SafeAreaProvider (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:72563:24)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at wrapper (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85842:27)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at ThemeProvider (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:63413:21)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at EnsureSingleNavigator (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:63281:24)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at BaseNavigationContainer (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:61611:28)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at NavigationContainerInner (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:86064:30)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at ContextNavigator (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85863:24)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at ExpoRoot (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85833:28)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at App (<anonymous>)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at RCTView (<anonymous>)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at anonymous (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:33265:43)
+11-06 14:53:11.826 E/ReactNativeJS( 6850):     at AppContainer (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:33221:24), js engine: hermes
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): Error: Call to function 'ExpoAsset.downloadAsync' has been rejected.
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): → Caused by: Unable to download asset from url: node_modules_expogooglefonts_roboto_400regular_roboto_400regular
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): 
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): This error is located at:
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at RootLayout (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:109741:44)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at Try (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:78234:22)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at Suspense (<anonymous>)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at Route (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:76121:24)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at BaseRoute (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:76474:24)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at StaticContainer (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:67289:17)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at EnsureSingleNavigator (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:63281:24)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at SceneView (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:67134:22)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at PreventRemoveProvider (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:65768:25)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at NavigationContent (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:66863:22)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at anonymous (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:66878:27)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at Content (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85927:51)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at RNCSafeAreaProvider (<anonymous>)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at SafeAreaProvider (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:72563:24)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at wrapper (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85842:27)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at ThemeProvider (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:63413:21)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at EnsureSingleNavigator (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:63281:24)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at BaseNavigationContainer (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:61611:28)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at NavigationContainerInner (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:86064:30)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at ContextNavigator (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85863:24)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at ExpoRoot (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:85833:28)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at App (<anonymous>)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at RCTView (<anonymous>)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at anonymous (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:33265:43)
+11-06 14:53:11.840 E/unknown:ReactNative( 6850):     at AppContainer (/tmp/expo-bundler-0.21315876930760402-1762347605303/index.js:33221:24), js engine: hermes, stack:
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): _construct@5702:66
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): Wrapper@5674:24
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): _callSuper@58419:169
+11-06 14:53:11.840 E/unknown:ReactNative( 6850): CodedError@58430:24
+11-06 14:53:11.929 E/TaskPersister( 1073): File error accessing recents directory (directory doesn't exist?).
+11-06 14:53:12.217 D/audio_hw_primary(  602): out_set_parameters: enter: usecase(1: low-latency-playback) kvpairs: suspend_playback=false
+11-06 14:53:12.219 D/audio_hw_primary(  602): out_standby: enter: stream (0xeeac64c0) usecase(1: low-latency-playback)
+11-06 14:53:12.196 E/[Awinic] aw87xxx_set_profile(    0): not found struct aw87xxx, dev_index = [0]
+11-06 14:53:12.196 E/[Awinic] aw87xxx_pa_dev_0_event(    0): set profile[Off] failed
+11-06 14:53:12.196 E/rouleur_codec rouleur-codec(    0): ASoC: POST_PMD: AW87XXX event failed: -22
+11-06 14:53:12.198 I/afe_close(    0): port_id = 0xb030
+11-06 14:53:12.288 D/audio_hw_primary(  602): disable_audio_route: reset and update mixer path: low-latency-playback
+11-06 14:53:12.289 D/soundtrigger(  602): audio_extn_sound_trigger_update_stream_status: uc_info->id 1 of type 0 for Event 2, with Raise=0
+11-06 14:53:12.290 D/hardware_info(  602): hw_info_append_hw_type : device_name = speaker
+11-06 14:53:12.290 D/audio_hw_primary(  602): disable_snd_device: snd_device(2: speaker)
+11-06 14:53:12.297 I/soundtrigger(  602): audio_extn_sound_trigger_update_device_status: device 0x2 of type 0 for Event 0, with Raise=0
+11-06 14:53:12.303 I/system_server( 1073): oneway function results will be dropped but finished with status OK and parcel size 4
+11-06 14:53:12.827 D/QCNEJ/WlanStaInfoRelay( 2379): Received action: android.net.wifi.RSSI_CHANGED
+11-06 14:53:13.612 I/ReactNativeJNI( 6850): Error occurred, shutting down websocket connection: WebSocket exception Failed to connect to localhost/127.0.0.1:8081
+11-06 14:53:13.836 E/[schedu][0xaf15feab40][14:53:13.921439] wlan(    0): [1855:E:WMA] wma_roam_stats_event_handler: Roam 11kv stats extract failed vdev 0
+11-06 14:53:13.898 E/        (    0): cw_update_data vol = 4079  cap = 87 temp = 340
+11-06 14:53:13.901 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:13.906 E/ALG     (    0): get_time_to_full_locked: failed to get ACT_BATT_CAP rc=-19
+11-06 14:53:13.909 W/healthd (    0): battery l=87 v=4079 t=34.0 h=2 st=2 c=-205383 fc=0 cc=0 chg=u
+11-06 14:53:13.911 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:13.999 V/LocSvc_BatteryListener(  628): healthInfoChanged_2_1:236] healthInfoChanged_2_1: 2
+11-06 14:53:14.000 V/LocSvc_BatteryListener(  628): healthInfoChanged:225] healthInfoChanged: 2
+11-06 14:53:13.911 I/chatty  (    0): uid=0(root) logd identical 1 line
+11-06 14:53:13.912 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:13.912 E/ALG     (    0): get_time_to_full_locked: failed to get ACT_BATT_CAP rc=-19
+11-06 14:53:14.002 E/BatteryService( 1073): Processing new values: info={.chargerAcOnline = false, .chargerUsbOnline = true, .chargerWirelessOnline = false, .maxChargingCurrent = 0, .maxChargingVoltage = 0, .batteryStatus = CHARGING, .batteryHealth = GOOD, .batteryPresent = true, .batteryLevel = 87, .batteryVoltage = 4079, .batteryTemperature = 340, .batteryCurrent = -205383, .batteryCycleCount = 0, .batteryFullCharge = 0, .batteryChargeCounter = 0, .batteryTechnology = Li-ion}, mBatteryLevelCritical=false, batteryTemperature=340, mPlugType=2
+11-06 14:53:14.002 E/BatteryService( 1073): shutdownIfOverTempLocked batteryTemperature=340
+11-06 14:53:14.003 D/BatteryService( 1073): Sending ACTION_BATTERY_CHANGED. scale:100, info:{.chargerAcOnline = false, .chargerUsbOnline = true, .chargerWirelessOnline = false, .maxChargingCurrent = 0, .maxChargingVoltage = 0, .batteryStatus = CHARGING, .batteryHealth = GOOD, .batteryPresent = true, .batteryLevel = 87, .batteryVoltage = 4079, .batteryTemperature = 340, .batteryCurrent = -205383, .batteryCycleCount = 0, .batteryFullCharge = 0, .batteryChargeCounter = 0, .batteryTechnology = Li-ion}
+11-06 14:53:13.916 I/        (    0): smblite_lib_get_prop_usb_present 1229
+11-06 14:53:14.010 D/KeyguardUpdateMonitor( 2121): received broadcast android.intent.action.BATTERY_CHANGED
+11-06 14:53:14.014 D/QtiCarrierConfigHelper( 2433): WARNING, no carrier configs on phone Id: 0
+11-06 14:53:14.017 D/KeyguardUpdateMonitor( 2121): handleBatteryUpdate
