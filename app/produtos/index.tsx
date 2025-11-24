@@ -6,6 +6,7 @@ import { AppTheme } from "@/src/constants/colorSchemes/theme";
 import { Title } from "@/src/components/Title";
 import ListaComponente from "@/src/components/ListaComponente";
 import styles from "./styles";
+
 import { PRODUCT_DATA, CATEGORY_CONFIG } from "../../src/constants/constants";
 import type { CategoryType, ProductItem } from "../../src/types/index";
 
@@ -23,9 +24,6 @@ const CategoryButton = React.memo<{
         borderBottomColor: isActive ? colors.text : "transparent",
       },
     ]}
-    accessibilityRole="button"
-    accessibilityState={{ selected: isActive }}
-    accessibilityLabel={`Categoria ${category}`}
   >
     <Text
       style={[
@@ -33,7 +31,6 @@ const CategoryButton = React.memo<{
         {
           color: isActive ? colors.sucesso : colors.text,
           fontWeight: isActive ? "600" : "normal",
-          textDecorationColor: colors.sucesso,
         },
       ]}
     >
@@ -65,55 +62,44 @@ const ProdutosPage: React.FC = () => {
       setIsLoading(true);
       setSelectedCategory(category);
 
-      const timeoutId = setTimeout(() => {
-        setIsLoading(false);
-      }, 300);
-
-      return () => clearTimeout(timeoutId);
+      setTimeout(() => setIsLoading(false), 300);
     },
     [selectedCategory, isLoading]
   );
 
-  const handleItemPress = useCallback(() => {
-    router.push("/carrinho");
-  }, []);
-
-  const categoryButtons = useMemo(() => {
-    return Object.keys(CATEGORY_CONFIG).map((category) => {
-      const categoryKey = category as CategoryType;
-      return (
-        <CategoryButton
-          key={categoryKey}
-          category={categoryKey}
-          isActive={categoryKey === selectedCategory}
-          onPress={handleCategoryChange}
-          colors={colors}
-        />
-      );
+  /** ⚡ Enviando item para o carrinho */
+  const handleItemPress = useCallback((item: ProductItem) => {
+    router.push({
+      pathname: "/carrinho",
+      params: {
+        bombasData: JSON.stringify(item),
+      },
     });
-  }, [selectedCategory, colors, handleCategoryChange]);
-
-  const loadingComponent = useMemo(
-    () => (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator
-          size="large"
-          color={colors.primary}
-          accessibilityLabel="Carregando produtos"
-        />
-      </View>
-    ),
-    [colors.primary]
-  );
+  }, []);
 
   return (
     <View style={styles.container}>
       <Title name="Produtos" showBack />
 
-      <View style={styles.categoriasContainer}>{categoryButtons}</View>
+      <View style={styles.categoriasContainer}>
+        {Object.keys(CATEGORY_CONFIG).map((category) => {
+          const categoryKey = category as CategoryType;
+          return (
+            <CategoryButton
+              key={categoryKey}
+              category={categoryKey}
+              isActive={categoryKey === selectedCategory}
+              onPress={handleCategoryChange}
+              colors={colors}
+            />
+          );
+        })}
+      </View>
 
       {isLoading ? (
-        loadingComponent
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color={colors.primary} />
+        </View>
       ) : (
         <ListaComponente
           data={data}
