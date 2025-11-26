@@ -16,12 +16,40 @@ const { PayGo } = NativeModules;
 const DEFAULT_PRODUCT_IMAGE =
   "https://s1.kuantokusta.pt/img_upload/produtos_gastronomiavinhos/28413_3_coca-cola-refrigerante-com-gas-33cl.jpg";
 
+/**
+ * 🔥 Normaliza qualquer tipo de preço vindo da API
+ * Exemplo:
+ * "5" → 500
+ * "5.50" → 550
+ * "5,50" → 550
+ * "R$ 5,50" → 550
+ * "05,500" → 5500
+ */
+function normalizarPreco(valor: any): number | null {
+  if (!valor) return null;
+
+  let str = String(valor).trim();
+
+  // Remove letras e símbolos
+  str = str.replace(/[^0-9.,]/g, "");
+
+  // Converte vírgula para ponto
+  str = str.replace(",", ".");
+
+  const numero = parseFloat(str);
+
+  if (isNaN(numero)) return null;
+
+  return Math.round(numero * 100);
+}
+
 const CarrinhoPage: React.FC = () => {
   const { bombasData } = useLocalSearchParams();
   const { colors } = useTheme() as AppTheme;
+
   const modalizeRefOrdemPedido = useRef<Modalize>(null);
 
-  // 🔹 converte dados do produto enviados pela rota
+  /** Processa os dados recebidos */
   const parsedData = useMemo(() => {
     if (!bombasData || typeof bombasData !== "string") return null;
 
@@ -61,38 +89,20 @@ const CarrinhoPage: React.FC = () => {
     ),
   };
 
-  /**
-   * 📌 Corrigido 100% — processamento e normalização do preço
-   * Remove R$, vírgula, espaço, milhar e converte para centavos.
-   */
+  /** 🔥 Handler do pagamento */
   const handlePaymentSelect = useCallback(async () => {
     modalizeRefOrdemPedido.current?.close();
 
     try {
-      const precoBruto = String(parsedData?.price).trim();
-      console.log("🔍 preço bruto =", precoBruto);
+      const valorCentavos = normalizarPreco(parsedData.price);
 
-      const precoNormalizado = precoBruto
-        .replace("R$", "")
-        .replace(/\s/g, "")
-        .replace(/\./g, "") // remove separador de milhar
-        .replace(",", ".") // troca vírgula por ponto
-        .trim();
-
-      console.log("🔍 preço normalizado =", precoNormalizado);
-
-      const precoFloat = parseFloat(precoNormalizado);
-      console.log("🔍 preço float =", precoFloat);
-
-      if (isNaN(precoFloat)) {
-        Alert.alert("ERRO", "Preço inválido recebido: " + precoBruto);
+      if (valorCentavos === null) {
+        Alert.alert("Erro", "Preço inválido recebido.");
         return;
       }
 
-      const valorCentavos = Math.round(precoFloat * 100);
-      console.log("💰 valorCentavos =", valorCentavos);
+      console.log("🔵 Enviando valor para PayGo:", valorCentavos);
 
-      // 🔥 Chama o módulo nativo com valor em centavos
       const result = await PayGo.iniciarTransacao(
         String(valorCentavos),
         "CREDITO"
@@ -141,6 +151,7 @@ const CarrinhoPage: React.FC = () => {
         />
       </View>
 
+      {/* Modal de seleção */}
       <Modalize ref={modalizeRefOrdemPedido} adjustToContentHeight>
         <View style={styles.modalContent}>
           <Text style={styles.titlePedido}>Forma de Pagamento</Text>

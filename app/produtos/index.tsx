@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import { router } from "expo-router";
+
 import { AppTheme } from "@/src/constants/colorSchemes/theme";
 import { Title } from "@/src/components/Title";
 import ListaComponente from "@/src/components/ListaComponente";
@@ -10,6 +11,25 @@ import styles from "./styles";
 import { PRODUCT_DATA, CATEGORY_CONFIG } from "../../src/constants/constants";
 import type { CategoryType, ProductItem } from "../../src/types/index";
 
+// -----------------------------
+// 🔥 Função para converter "R$ 07,90" → 7.9
+// -----------------------------
+function parsePrice(status: string): number {
+  if (!status) return 0;
+
+  return Number(
+    status
+      .replace("R$", "")
+      .replace(/\s/g, "")
+      .replace(".", "")
+      .replace(",", ".")
+      .trim()
+  );
+}
+
+// -----------------------------
+// 🔥 Botão de categoria (memoizado)
+// -----------------------------
 const CategoryButton = React.memo<{
   category: CategoryType;
   isActive: boolean;
@@ -20,9 +40,7 @@ const CategoryButton = React.memo<{
     onPress={() => onPress(category)}
     style={[
       styles.categoriaBotao,
-      {
-        borderBottomColor: isActive ? colors.text : "transparent",
-      },
+      { borderBottomColor: isActive ? colors.text : "transparent" },
     ]}
   >
     <Text
@@ -41,12 +59,19 @@ const CategoryButton = React.memo<{
 
 CategoryButton.displayName = "CategoryButton";
 
+// -----------------------------
+// 🔥 Tela principal
+// -----------------------------
 const ProdutosPage: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
+
   const [selectedCategory, setSelectedCategory] =
     useState<CategoryType>("Conveniência");
   const [isLoading, setIsLoading] = useState(false);
 
+  // ----------------------------------------------------
+  // 🔥 Carregar produtos da categoria selecionada
+  // ----------------------------------------------------
   const { data, imageSource } = useMemo(() => {
     const config = CATEGORY_CONFIG[selectedCategory];
     return {
@@ -55,9 +80,12 @@ const ProdutosPage: React.FC = () => {
     };
   }, [selectedCategory]);
 
+  // ----------------------------------------------------
+  // 🔥 Trocar categoria
+  // ----------------------------------------------------
   const handleCategoryChange = useCallback(
     (category: CategoryType) => {
-      if (category === selectedCategory || isLoading) return;
+      if (isLoading || category === selectedCategory) return;
 
       setIsLoading(true);
       setSelectedCategory(category);
@@ -67,12 +95,21 @@ const ProdutosPage: React.FC = () => {
     [selectedCategory, isLoading]
   );
 
-  /** ⚡ Enviando item para o carrinho */
+  // ----------------------------------------------------
+  // 🔥 Enviar item para o carrinho
+  // ----------------------------------------------------
   const handleItemPress = useCallback((item: ProductItem) => {
+    const price = parsePrice(item.status);
+
     router.push({
       pathname: "/carrinho",
       params: {
-        bombasData: JSON.stringify(item),
+        bombasData: JSON.stringify({
+          id: item.id,
+          title: item.type,
+          price: price, // agora valor numérico
+          code: item.code,
+        }),
       },
     });
   }, []);
@@ -81,6 +118,7 @@ const ProdutosPage: React.FC = () => {
     <View style={styles.container}>
       <Title name="Produtos" showBack />
 
+      {/* 🔥 Categorias */}
       <View style={styles.categoriasContainer}>
         {Object.keys(CATEGORY_CONFIG).map((category) => {
           const categoryKey = category as CategoryType;
@@ -96,6 +134,7 @@ const ProdutosPage: React.FC = () => {
         })}
       </View>
 
+      {/* 🔥 Lista ou carregamento */}
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary} />

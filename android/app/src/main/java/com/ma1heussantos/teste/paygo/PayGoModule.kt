@@ -18,7 +18,7 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
     override fun getName() = "PayGo"
 
     @ReactMethod
-    fun iniciarTransacao(valor: String, metodo: String, promise: Promise) {
+    fun iniciarTransacao(valorCentavos: String, metodo: String, promise: Promise) {
 
         val activity = currentActivity ?: run {
             promise.reject("NO_ACTIVITY", "Nenhuma Activity ativa.")
@@ -27,49 +27,28 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
 
         pendingPromise = promise
 
-        // ------------------ URI PRINCIPAL DA TRANSAÇÃO ------------------
-        val transacaoUri = Uri.parse(
+        val uri = Uri.parse(
             "app://payment/input?" +
-                    "operation=VENDA" +
-                    "&transactionId=12345" +
-                    "&amount=$valor" +
-                    "&currencyCode=986"
+                "currencyCode=986" +
+                "&transactionId=1" +
+                "&amount=$valorCentavos" +    // valor em centavos
+                "&operation=VENDA"
         )
 
-        // ------------------ URI posData (OBRIGATÓRIA) ------------------
-        val posDataUri = Uri.parse(
-            "app://payment/posData?" +
-                    "posName=VLTECH" +
-                    "&posVersion=1.0.0" +
-                    "&posDeveloper=Matheus" +
-                    "&allowCashback=false" +
-                    "&allowDiscount=false" +
-                    "&allowShortReceipt=true" +
-                    "&allowDifferentReceipts=true"
-        )
-
-        // Bundle com a URI (documentação exige)
-        val posDataBundle = Bundle().apply {
-            putString("uri", posDataUri.toString())
+        val posData = Bundle().apply {
+            putString("posDeveloper", "VLTECH")
+            putString("posName", "VLTECH PDV")
+            putString("posVersion", "1.0.0")
+            putBoolean("allowCashback", false)
+            putBoolean("allowDiscount", false)
+            putBoolean("allowShortReceipt", true)
+            putBoolean("allowDifferentReceipts", true)
         }
 
-        // ------------------ Personalização opcional ------------------
-        val customUri = Uri.parse(
-            "app://payment/posCustomization?" +
-                    "fontColor=%23000000&screenBackgroundColor=%23FFFFFF"
-        )
-
-        val customBundle = Bundle().apply {
-            putString("uri", customUri.toString())
-        }
-
-        // ------------------ MONTAR INTENT ------------------
-        val intent = Intent("br.com.setis.payment.TRANSACTION", transacaoUri).apply {
-            putExtra("DadosAutomacao", posDataBundle)
-            putExtra("Personalizacao", customBundle)
+        val intent = Intent("br.com.setis.payment.TRANSACTION", uri).apply {
+            putExtra("posData", posData)
             putExtra("package", reactContext.packageName)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
         }
 
         try {
@@ -91,12 +70,12 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
         val promise = pendingPromise ?: return
         pendingPromise = null
 
-        val map = Arguments.createMap()
+        val result = Arguments.createMap()
 
         data?.extras?.keySet()?.forEach { key ->
-            map.putString(key, data.extras?.get(key).toString())
+            result.putString(key, data.extras?.get(key).toString())
         }
 
-        promise.resolve(map)
+        promise.resolve(result)
     }
 }
