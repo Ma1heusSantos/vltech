@@ -1,171 +1,179 @@
+// app/carrinho.tsx
 import React, { useMemo, useCallback, useRef } from "react";
-import { Image, Text, View, ScrollView, Alert } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useTheme } from "@react-navigation/native";
-import { router, useLocalSearchParams } from "expo-router";
+import { router } from "expo-router";
 import { Modalize } from "react-native-modalize";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import { AppTheme } from "@/src/constants/colorSchemes/theme";
 import { Title } from "@/src/components/Title";
 import { Button } from "@/src/components/Button";
+import { useCart } from "@/src/context/CartContext";
 import styles from "./styles";
 
 import { NativeModules } from "react-native";
 const { PayGo } = NativeModules;
 
-const DEFAULT_PRODUCT_IMAGE =
-  "https://s1.kuantokusta.pt/img_upload/produtos_gastronomiavinhos/28413_3_coca-cola-refrigerante-com-gas-33cl.jpg";
-
-/**
- * 🔥 Normaliza qualquer tipo de preço vindo da API
- * Exemplo:
- * "5" → 500
- * "5.50" → 550
- * "5,50" → 550
- * "R$ 5,50" → 550
- * "05,500" → 5500
- */
-function normalizarPreco(valor: any): number | null {
-  if (!valor) return null;
-
-  let str = String(valor).trim();
-
-  // Remove letras e símbolos
-  str = str.replace(/[^0-9.,]/g, "");
-
-  // Converte vírgula para ponto
-  str = str.replace(",", ".");
-
-  const numero = parseFloat(str);
-
-  if (isNaN(numero)) return null;
-
-  return Math.round(numero * 100);
+// Formata 12.5 → "12,50"
+function formatPriceBRL(value: number): string {
+  return value.toFixed(2).replace(".", ",");
 }
 
 const CarrinhoPage: React.FC = () => {
-  const { bombasData } = useLocalSearchParams();
   const { colors } = useTheme() as AppTheme;
+  const {
+    items,
+    total,
+    increaseQuantity,
+    decreaseQuantity,
+    removeItem,
+    clearCart,
+  } = useCart();
 
-  const modalizeRefOrdemPedido = useRef<Modalize>(null);
+  const modalizeRef = useRef<Modalize>(null);
 
-  /** Processa os dados recebidos */
-  const parsedData = useMemo(() => {
-    if (!bombasData || typeof bombasData !== "string") return null;
+  const totalCentavos = useMemo(() => Math.round(total * 100), [total]);
 
-    try {
-      return JSON.parse(bombasData);
-    } catch {
-      return null;
-    }
-  }, [bombasData]);
-
-  if (!parsedData) {
-    return (
-      <View style={styles.container}>
-        <Title name="Carrinho" showBack />
-        <View style={styles.emptyContainer}>
-          <MaterialCommunityIcons
-            name="alert-circle"
-            size={48}
-            color={"red"}
-            style={{ marginBottom: 16 }}
-          />
-          <Text style={styles.emptyText}>Dados não fornecidos.</Text>
-        </View>
-      </View>
-    );
-  }
-
-  const item = {
-    id: parsedData.id,
-    title: parsedData.title || parsedData.name || "Produto",
-    price: parsedData.price,
-    icon: (
-      <Image
-        source={{ uri: DEFAULT_PRODUCT_IMAGE }}
-        style={[styles.productImage, { backgroundColor: colors.fundo_escuro }]}
-      />
-    ),
-  };
-
-  /** 🔥 Handler do pagamento */
-  const handlePaymentSelect = useCallback(async () => {
-    modalizeRefOrdemPedido.current?.close();
-
-    try {
-      const valorCentavos = normalizarPreco(parsedData.price);
-
-      if (valorCentavos === null) {
-        Alert.alert("Erro", "Preço inválido recebido.");
-        return;
-      }
-
-      console.log("🔵 Enviando valor para PayGo:", valorCentavos);
-
-      const result = await PayGo.iniciarTransacao(
-        String(valorCentavos),
-        "CREDITO"
+  const handleConfirmPayment = useCallback(async () => {
+    if (!PayGo) {
+      Alert.alert(
+        "Integração",
+        "Módulo PayGo não disponível no NativeModules."
       );
+      return;
+    }
 
+    if (totalCentavos <= 0) {
+      Alert.alert("Carrinho vazio", "Adicione itens antes de pagar.");
+      return;
+    }
+
+    try {
+      const valor = String(totalCentavos);
+      console.log("🔵 Enviando para PayGo:", valor);
+
+      const result = await PayGo.iniciarTransacao(valor, "CREDITO");
       console.log("🟢 Retorno PayGo:", result);
+
+      clearCart();
 
       router.push({
         pathname: "/finalizar",
         params: { paygo: JSON.stringify(result) },
       });
-    } catch (err) {
-      console.log("🔴 Erro PayGo:", err);
-      Alert.alert("Erro no pagamento", JSON.stringify(err));
+    } catch (error) {
+      console.log("🔴 Erro PayGo:", error);
+      Alert.alert("Erro no pagamento", JSON.stringify(error));
     }
-  }, [parsedData]);
+  }, [totalCentavos, clearCart]);
+
+  const handleFinishPress = useCallback(() => {
+    if (items.length === 0) {
+      Alert.alert("Carrinho vazio", "Adicione algum item antes de continuar.");
+      return;
+    }
+    modalizeRef.current?.open();
+  }, [items]);
+
+  const renderItem = ({ item }: any) => (
+    <View style={styles.itemRow}>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.itemTitle}>{item.name}</Text>
+        <Text style={styles.itemPrice}>
+          R$ {formatPriceBRL(item.price)} x {item.quantity} ={" "}
+          <Text style={styles.itemSubtotal}>
+            R$ {formatPriceBRL(item.price * item.quantity)}
+          </Text>
+        </Text>
+      </View>
+
+      <View style={styles.quantityContainer}>
+        <TouchableOpacity
+          style={styles.qtyButton}
+          onPress={() => decreaseQuantity(item.id)}
+        >
+          <Text style={styles.qtyButtonText}>-</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.qtyText}>{item.quantity}</Text>
+
+        <TouchableOpacity
+          style={styles.qtyButton}
+          onPress={() => increaseQuantity(item.id)}
+        >
+          <Text style={styles.qtyButtonText}>+</Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity
+        style={styles.removeButton}
+        onPress={() => removeItem(item.id)}
+      >
+        <Text style={styles.removeText}>X</Text>
+      </TouchableOpacity>
+    </View>
+  );
+
+  if (items.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Title name="Carrinho" showBack />
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>Seu carrinho está vazio.</Text>
+          <Button
+            title="Ver produtos"
+            color={colors.primary}
+            onPress={() => router.push("/produtos")}
+          />
+        </View>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
       <Title name="Carrinho" showBack />
 
-      <ScrollView contentContainerStyle={styles.itens}>
-        <View style={styles.item}>
-          <View style={styles.iconImage}>{item.icon}</View>
-          <View style={styles.textContainer}>
-            <Text style={styles.pumpText}>{item.title}</Text>
-            <Text style={styles.statusText}>Preço: R$ {parsedData.price}</Text>
-          </View>
-        </View>
-      </ScrollView>
+      <FlatList
+        data={items}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.listContainer}
+        renderItem={renderItem}
+      />
 
-      <View style={styles.totalPedido}>
-        <Text style={styles.titlePedido}>Total</Text>
-        <Text style={styles.totalNum}>R$ {parsedData.price}</Text>
+      <View style={styles.footer}>
+        <Text style={styles.totalLabel}>Total:</Text>
+        <Text style={styles.totalValue}>R$ {formatPriceBRL(total)}</Text>
 
         <Button
-          title="CONTINUAR"
+          title="FINALIZAR COMPRA"
           color={colors.primary}
-          onPress={() => modalizeRefOrdemPedido.current?.open()}
+          onPress={handleFinishPress}
         />
 
         <Button
-          title="CANCELAR"
-          color={colors.destaque}
-          onPress={() => router.back()}
+          title="LIMPAR CARRINHO"
+          color={colors.error}
+          onPress={clearCart}
         />
       </View>
 
-      {/* Modal de seleção */}
-      <Modalize ref={modalizeRefOrdemPedido} adjustToContentHeight>
+      <Modalize ref={modalizeRef} adjustToContentHeight>
         <View style={styles.modalContent}>
-          <Text style={styles.titlePedido}>Forma de Pagamento</Text>
+          <Text style={styles.modalTitle}>Forma de Pagamento</Text>
+          <Text style={styles.modalText}>
+            Total: R$ {formatPriceBRL(total)}
+          </Text>
 
           <Button
-            title="Pagar"
+            title="Pagar com cartão (PayGo)"
             color={colors.primary}
-            onPress={handlePaymentSelect}
+            onPress={handleConfirmPayment}
           />
-
           <Button
-            title="Fechar"
-            color={colors.error}
-            onPress={() => modalizeRefOrdemPedido.current?.close()}
+            title="Cancelar"
+            color={colors.destaque}
+            onPress={() => modalizeRef.current?.close()}
           />
         </View>
       </Modalize>

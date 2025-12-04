@@ -1,12 +1,15 @@
+// app/_layout.tsx
 import { ThemeProvider } from "@react-navigation/native";
 import { Redirect, Stack, usePathname } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useMemo, useState } from "react";
 import "react-native-reanimated";
 import { useColorScheme, View, ActivityIndicator } from "react-native";
-import { LightTheme, DarkTheme } from "@/src/constants/colorSchemes/theme";
 import * as Font from "expo-font";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+import { LightTheme, DarkTheme } from "@/src/constants/colorSchemes/theme";
+import { CartProvider } from "@/src/context/CartContext";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -71,21 +74,18 @@ function RootLayoutNav() {
     return <Redirect href="/home" />;
   }
 
-  const stackScreens = useMemo(
-    () => (
-      <>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="home" options={{ headerShown: false }} />
-      </>
-    ),
-    []
-  );
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider value={theme}>
-        <Stack screenOptions={{ headerShown: false }}>{stackScreens}</Stack>
-      </ThemeProvider>
+      <CartProvider>
+        <ThemeProvider value={theme}>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="index" />
+            <Stack.Screen name="home" />
+            <Stack.Screen name="produtos" />
+            <Stack.Screen name="carrinho" />
+          </Stack>
+        </ThemeProvider>
+      </CartProvider>
     </GestureHandlerRootView>
   );
 }

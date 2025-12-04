@@ -1,58 +1,60 @@
+// src/pages/produtos/styles.ts
 import { StyleSheet } from "react-native";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
+    backgroundColor: "#fff", // combina com o restante do app
     paddingHorizontal: 12,
-    alignItems: "flex-start",
-    paddingBottom: 16,
+    paddingTop: 8,
   },
-  categoriasContainer: {
+
+  // Barra superior: categorias + botão carrinho
+  topBar: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    alignContent: "center",
-    width: "100%",
-    gap: 24,
-    paddingVertical: 16,
+    justifyContent: "space-between",
+    marginBottom: 8,
   },
+
+  categoriasContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    flex: 1,
+  },
+
   categoriaBotao: {
-    paddingHorizontal: 24,
+    paddingHorizontal: 8,
     paddingVertical: 4,
-    borderBottomWidth: 1,
-    borderBottomColor: "#000",
+    marginRight: 8,
+    marginBottom: 4,
+    borderBottomWidth: 2,
   },
+
   categoriaTexto: {
-    fontSize: 20,
+    fontSize: 13,
+    fontFamily: "Roboto-Regular",
   },
+
+  cartButton: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: "#4B5563",
+    marginLeft: 8,
+  },
+
+  cartText: {
+    fontSize: 13,
+    fontFamily: "Roboto-Medium",
+  },
+
   loadingContainer: {
-    width: "100%",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "20%",
-  },
-  leftAction: {
-    flex: 1,
-    backgroundColor: "#388e3c",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    paddingLeft: 20,
-  },
-  rightAction: {
-    flex: 1,
-    backgroundColor: "#d32f2f",
-    justifyContent: "center",
-    alignItems: "flex-end",
-    paddingRight: 20,
-  },
-  actionText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  contentText: {
-    fontSize: 18,
-    color: "#000",
   },
 });
+
+export default styles;

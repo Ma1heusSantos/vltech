@@ -40,16 +40,6 @@
 
         </activity>
 
-        <!-- PAYGO BROADCAST RECEIVER -->
-        <receiver
-            android:name=".paygo.PayGoReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="br.com.setis.interfaceautomacao.SERVICO"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-        </receiver>
-
         <!-- OBRIGATÓRIO PARA EXPO -->
         <meta-data
             android:name="expo.modules.updates.ENABLED"

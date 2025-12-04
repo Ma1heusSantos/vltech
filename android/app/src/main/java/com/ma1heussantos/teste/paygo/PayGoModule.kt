@@ -18,7 +18,11 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
     override fun getName() = "PayGo"
 
     @ReactMethod
-    fun iniciarTransacao(valorCentavos: String, metodo: String, promise: Promise) {
+    fun iniciarTransacao(
+        valorCentavos: String,
+        posId: String,
+        promise: Promise
+    ) {
 
         val activity = currentActivity ?: run {
             promise.reject("NO_ACTIVITY", "Nenhuma Activity ativa.")
@@ -27,28 +31,48 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
 
         pendingPromise = promise
 
-        val uri = Uri.parse(
-            "app://payment/input?" +
-                "currencyCode=986" +
-                "&transactionId=1" +
-                "&amount=$valorCentavos" +    // valor em centavos
-                "&operation=VENDA"
-        )
-
-        val posData = Bundle().apply {
-            putString("posDeveloper", "VLTECH")
-            putString("posName", "VLTECH PDV")
-            putString("posVersion", "1.0.0")
-            putBoolean("allowCashback", false)
-            putBoolean("allowDiscount", false)
-            putBoolean("allowShortReceipt", true)
-            putBoolean("allowDifferentReceipts", true)
+        // === URI COMPLETA E CORRETA ===
+        val uriString = buildString {
+            append("app://payment/input?")
+            append("operation=VENDA")
+            append("&transactionId=1")
+            append("&amount=$valorCentavos")
+            append("&currencyCode=986")
+            append("&provider=DEMO")
+            append("&cardType=CARTAO_CREDITO")
+            append("&finType=A_VISTA")
+            append("&paymentMode=PAGAMENTO_CARTAO")
+            append("&installments=1")
+            append("&posId=$posId")
         }
 
+        val uri = Uri.parse(uriString)
+
+        // === DADOS DA AUTOMAÇÃO — OBRIGATÓRIOS ===
+
+          val dadosAutomacao = buildString {
+            append("app://payment/posData?")
+            append("posDeveloper=VLTECH")
+            append("&posName=VLTECH PDV")
+            append("&posVersion=1.0.0")
+            append("&allowCashback=false")
+            append("&allowDiscount=false")
+            append("&allowShortReceipt=true")
+            append("&allowDifferentReceipts=true")
+        }
+
+        // === PERSONALIZAÇÃO — OPCIONAL ===
+        val personalizacao = Bundle().apply {
+            // Pode adicionar cores aqui no futuro
+        }
+
+        // === INTENT CORRETA ===
         val intent = Intent("br.com.setis.payment.TRANSACTION", uri).apply {
-            putExtra("posData", posData)
+            putExtra("DadosAutomacao", dadosAutomacao)
+            putExtra("Personalizacao", personalizacao)
             putExtra("package", reactContext.packageName)
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
         }
 
         try {

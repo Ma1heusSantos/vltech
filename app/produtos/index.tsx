@@ -1,5 +1,12 @@
+// app/produtos.tsx
 import React, { useState, useMemo, useCallback } from "react";
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+  Alert,
+} from "react-native";
 import { useTheme } from "@react-navigation/native";
 import { router } from "expo-router";
 
@@ -8,15 +15,13 @@ import { Title } from "@/src/components/Title";
 import ListaComponente from "@/src/components/ListaComponente";
 import styles from "./styles";
 
-import { PRODUCT_DATA, CATEGORY_CONFIG } from "../../src/constants/constants";
-import type { CategoryType, ProductItem } from "../../src/types/index";
+import { PRODUCT_DATA, CATEGORY_CONFIG } from "@/src/constants/constants";
+import type { CategoryType, ProductItem } from "@/src/types";
+import { useCart } from "@/src/context/CartContext";
 
-// -----------------------------
-// 🔥 Função para converter "R$ 07,90" → 7.9
-// -----------------------------
+// Converte "R$ 7,90" → 7.9
 function parsePrice(status: string): number {
   if (!status) return 0;
-
   return Number(
     status
       .replace("R$", "")
@@ -27,9 +32,6 @@ function parsePrice(status: string): number {
   );
 }
 
-// -----------------------------
-// 🔥 Botão de categoria (memoizado)
-// -----------------------------
 const CategoryButton = React.memo<{
   category: CategoryType;
   isActive: boolean;
@@ -59,19 +61,14 @@ const CategoryButton = React.memo<{
 
 CategoryButton.displayName = "CategoryButton";
 
-// -----------------------------
-// 🔥 Tela principal
-// -----------------------------
 const ProdutosPage: React.FC = () => {
   const { colors } = useTheme() as AppTheme;
+  const { addItem, items } = useCart();
 
   const [selectedCategory, setSelectedCategory] =
     useState<CategoryType>("Conveniência");
   const [isLoading, setIsLoading] = useState(false);
 
-  // ----------------------------------------------------
-  // 🔥 Carregar produtos da categoria selecionada
-  // ----------------------------------------------------
   const { data, imageSource } = useMemo(() => {
     const config = CATEGORY_CONFIG[selectedCategory];
     return {
@@ -80,61 +77,76 @@ const ProdutosPage: React.FC = () => {
     };
   }, [selectedCategory]);
 
-  // ----------------------------------------------------
-  // 🔥 Trocar categoria
-  // ----------------------------------------------------
   const handleCategoryChange = useCallback(
     (category: CategoryType) => {
       if (isLoading || category === selectedCategory) return;
 
       setIsLoading(true);
       setSelectedCategory(category);
-
-      setTimeout(() => setIsLoading(false), 300);
+      setTimeout(() => setIsLoading(false), 200);
     },
     [selectedCategory, isLoading]
   );
 
-  // ----------------------------------------------------
-  // 🔥 Enviar item para o carrinho
-  // ----------------------------------------------------
-  const handleItemPress = useCallback((item: ProductItem) => {
-    const price = parsePrice(item.status);
+  const handleItemPress = useCallback(
+    (item: ProductItem) => {
+      const price = parsePrice(item.status);
 
-    router.push({
-      pathname: "/carrinho",
-      params: {
-        bombasData: JSON.stringify({
-          id: item.id,
-          title: item.type,
-          price: price, // agora valor numérico
-          code: item.code,
-        }),
-      },
-    });
-  }, []);
+      addItem({
+        id: String(item.id),
+        name: item.type,
+        price,
+        code: item.code,
+      });
+
+      Alert.alert("Adicionado", `${item.type} foi adicionado ao carrinho.`, [
+        { text: "Continuar comprando" },
+        {
+          text: "Ir para o carrinho",
+          onPress: () => router.push("/carrinho"),
+        },
+      ]);
+    },
+    [addItem]
+  );
+
+  const totalItens = useMemo(
+    () => items.reduce((sum, i) => sum + i.quantity, 0),
+    [items]
+  );
 
   return (
     <View style={styles.container}>
       <Title name="Produtos" showBack />
 
-      {/* 🔥 Categorias */}
-      <View style={styles.categoriasContainer}>
-        {Object.keys(CATEGORY_CONFIG).map((category) => {
-          const categoryKey = category as CategoryType;
-          return (
-            <CategoryButton
-              key={categoryKey}
-              category={categoryKey}
-              isActive={categoryKey === selectedCategory}
-              onPress={handleCategoryChange}
-              colors={colors}
-            />
-          );
-        })}
+      {/* Barra topo: categorias + carrinho */}
+      <View style={styles.topBar}>
+        <View style={styles.categoriasContainer}>
+          {Object.keys(CATEGORY_CONFIG).map((category) => {
+            const categoryKey = category as CategoryType;
+            return (
+              <CategoryButton
+                key={categoryKey}
+                category={categoryKey}
+                isActive={categoryKey === selectedCategory}
+                onPress={handleCategoryChange}
+                colors={colors}
+              />
+            );
+          })}
+        </View>
+
+        <TouchableOpacity
+          style={styles.cartButton}
+          onPress={() => router.push("/carrinho")}
+        >
+          <Text style={[styles.cartText, { color: colors.text }]}>
+            Carrinho ({totalItens})
+          </Text>
+        </TouchableOpacity>
       </View>
 
-      {/* 🔥 Lista ou carregamento */}
+      {/* Lista */}
       {isLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary} />
