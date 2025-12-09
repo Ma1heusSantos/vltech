@@ -20,6 +20,7 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
     @ReactMethod
     fun iniciarTransacao(
         valorCentavos: String,
+        paymentMode: String,
         posId: String,
         promise: Promise
     ) {
@@ -31,7 +32,9 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
 
         pendingPromise = promise
 
-        // === URI COMPLETA E CORRETA ===
+        // ----------------------------
+        // 🔵 Monta a URI de TRANSAÇÃO
+        // ----------------------------
         val uriString = buildString {
             append("app://payment/input?")
             append("operation=VENDA")
@@ -39,7 +42,7 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
             append("&amount=$valorCentavos")
             append("&currencyCode=986")
             append("&provider=DEMO")
-            append("&cardType=CARTAO_CREDITO")
+            append("&cardType=$paymentMode")
             append("&finType=A_VISTA")
             append("&paymentMode=PAGAMENTO_CARTAO")
             append("&installments=1")
@@ -48,9 +51,10 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
 
         val uri = Uri.parse(uriString)
 
-        // === DADOS DA AUTOMAÇÃO — OBRIGATÓRIOS ===
-
-          val dadosAutomacao = buildString {
+        // ----------------------------
+        // 🔵 Monta Dados Automação
+        // ----------------------------
+        val dadosAutomacao = buildString {
             append("app://payment/posData?")
             append("posDeveloper=VLTECH")
             append("&posName=VLTECH PDV")
@@ -61,12 +65,11 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
             append("&allowDifferentReceipts=true")
         }
 
-        // === PERSONALIZAÇÃO — OPCIONAL ===
-        val personalizacao = Bundle().apply {
-            // Pode adicionar cores aqui no futuro
-        }
+        val personalizacao = Bundle()
 
-        // === INTENT CORRETA ===
+        // ----------------------------
+        // 🔵 Dispara a Intent PayGo
+        // ----------------------------
         val intent = Intent("br.com.setis.payment.TRANSACTION", uri).apply {
             putExtra("DadosAutomacao", dadosAutomacao)
             putExtra("Personalizacao", personalizacao)
@@ -83,23 +86,35 @@ class PayGoModule(private val reactContext: ReactApplicationContext) :
         }
     }
 
-    override fun onNewIntent(intent: Intent?) {}
+    // --------------------------------------------------------------------
+    // 🔵 Aqui recebemos a resposta PayGo via esquema URI app://payment/output?
+    // --------------------------------------------------------------------
+    override fun onNewIntent(intent: Intent?) {
+        val promise = pendingPromise ?: return
 
+        val data = intent?.data
+        if (data != null) {
+            val result = Arguments.createMap()
+            val query = data.query ?: ""
+
+            // converte "key=value" para Map
+            query.split("&").forEach { param ->
+                val parts = param.split("=")
+                if (parts.size == 2) {
+                    result.putString(parts[0], parts[1])
+                }
+            }
+
+            pendingPromise = null
+            promise.resolve(result)
+        }
+    }
+
+    // Não usado pelo PayGo, mas deve existir
     override fun onActivityResult(
         activity: Activity?,
         requestCode: Int,
         resultCode: Int,
         data: Intent?
-    ) {
-        val promise = pendingPromise ?: return
-        pendingPromise = null
-
-        val result = Arguments.createMap()
-
-        data?.extras?.keySet()?.forEach { key ->
-            result.putString(key, data.extras?.get(key).toString())
-        }
-
-        promise.resolve(result)
-    }
+    ) {}
 }

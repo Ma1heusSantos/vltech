@@ -14,7 +14,6 @@ import styles from "./styles";
 import { NativeModules } from "react-native";
 const { PayGo } = NativeModules;
 
-// Formata 12.5 → "12,50"
 function formatPriceBRL(value: number): string {
   return value.toFixed(2).replace(".", ",");
 }
@@ -34,38 +33,45 @@ const CarrinhoPage: React.FC = () => {
 
   const totalCentavos = useMemo(() => Math.round(total * 100), [total]);
 
-  const handleConfirmPayment = useCallback(async () => {
-    if (!PayGo) {
-      Alert.alert(
-        "Integração",
-        "Módulo PayGo não disponível no NativeModules."
-      );
-      return;
-    }
+  const handleConfirmPayment = useCallback(
+    async (paymentMode: string) => {
+      if (!PayGo) {
+        Alert.alert(
+          "Integração",
+          "Módulo PayGo não disponível no NativeModules."
+        );
+        return;
+      }
 
-    if (totalCentavos <= 0) {
-      Alert.alert("Carrinho vazio", "Adicione itens antes de pagar.");
-      return;
-    }
+      if (totalCentavos <= 0) {
+        Alert.alert("Carrinho vazio", "Adicione itens antes de pagar.");
+        return;
+      }
 
-    try {
-      const valor = String(totalCentavos);
-      console.log("🔵 Enviando para PayGo:", valor);
+      try {
+        const valor = String(totalCentavos);
+        console.log("🔵 Enviando para PayGo:", valor, paymentMode);
 
-      const result = await PayGo.iniciarTransacao(valor, "CREDITO");
-      console.log("🟢 Retorno PayGo:", result);
+        const result = await PayGo.iniciarTransacao(
+          valor,
+          paymentMode,
+          "99697"
+        );
+        console.log("🟢 Retorno PayGo:", result);
 
-      clearCart();
+        clearCart();
 
-      router.push({
-        pathname: "/finalizar",
-        params: { paygo: JSON.stringify(result) },
-      });
-    } catch (error) {
-      console.log("🔴 Erro PayGo:", error);
-      Alert.alert("Erro no pagamento", JSON.stringify(error));
-    }
-  }, [totalCentavos, clearCart]);
+        router.push({
+          pathname: "/finalizar",
+          params: { paygo: JSON.stringify(result) },
+        });
+      } catch (error) {
+        console.log("🔴 Erro PayGo:", error);
+        Alert.alert("Erro no pagamento", JSON.stringify(error));
+      }
+    },
+    [totalCentavos, clearCart]
+  );
 
   const handleFinishPress = useCallback(() => {
     if (items.length === 0) {
@@ -166,10 +172,17 @@ const CarrinhoPage: React.FC = () => {
           </Text>
 
           <Button
-            title="Pagar com cartão (PayGo)"
+            title="Crédito"
             color={colors.primary}
-            onPress={handleConfirmPayment}
+            onPress={() => handleConfirmPayment("CARTAO_CREDITO")}
           />
+
+          <Button
+            title="Débito"
+            color={colors.sucesso}
+            onPress={() => handleConfirmPayment("CARTAO_DEBITO")}
+          />
+
           <Button
             title="Cancelar"
             color={colors.destaque}
